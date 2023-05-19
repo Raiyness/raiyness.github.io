@@ -91,11 +91,7 @@
 
 
   
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 
 <body>
@@ -300,186 +296,420 @@
                 
                 <p>这部分是正文的摘要。经过测试，如果首页的文章列表中没有略缩图和摘要，标题+文章信息的显示方式会使页面过于拥挤，所以给出此项配置供喜欢首页只显示文章标题的同学使用。</p>
 <span id="more"></span>
-
-<h2 id="1-Warming-Up"><a href="#1-Warming-Up" class="headerlink" title="1. (Warming Up)"></a>1. (Warming Up)</h2><h3 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h3><p>For the following graph $G$</p>
-<p>![[COMP9020 Week 5 Problem Set 2023-03-21 14.48.30.excalidraw|200]]</p>
+<h2 id="warming-up">1. (Warming Up)</h2>
+<h3 id="section">1.1</h3>
+<p>For the following graph <span class="math inline">\(G\)</span></p>
+<p>[[COMP9020 Week 5 Problem Set 2023-03-21
+14.48.30.excalidraw|200]]</p>
 <ul>
-<li>give all simple paths of length 3 starting in $b$ and ending in $c$;<br>给出从 $b$ 开始、以 $c$ 结束的长度为 3 的所有简单路径；<ul>
-<li>{b, e} -&gt; {d, e} -&gt; {e, c} </li>
+<li>give all simple paths of length 3 starting in <span
+class="math inline">\(b\)</span> and ending in <span
+class="math inline">\(c\)</span>; 给出从 <span
+class="math inline">\(b\)</span> 开始、以 <span
+class="math inline">\(c\)</span> 结束的长度为 3 的所有简单路径；
+<ul>
+<li>{b, e} -&gt; {d, e} -&gt; {e, c}</li>
 <li>{b, e} -&gt; {e, d} -&gt; {d, c}</li>
-</ul>
-</li>
-<li>give the vertex sequence of two different paths between $b$ and $c$ of length 3 that are not simple;<br>给出长度为 3 的两条不同路径的顶点序列，它们之间不是简单路径；<ul>
+</ul></li>
+<li>give the vertex sequence of two different paths between <span
+class="math inline">\(b\)</span> and <span
+class="math inline">\(c\)</span> of length 3 that are not simple;
+给出长度为 3 的两条不同路径的顶点序列，它们之间不是简单路径；
+<ul>
 <li>{b, a, b, c}</li>
 <li>{b, d, e, b}</li>
 <li>{c, d, e, b}</li>
 <li>{b, c, d, b}</li>
-</ul>
-</li>
-<li>give a cycle of length 4;<br>给出长度为 4 的环；<ul>
+</ul></li>
+<li>give a cycle of length 4; 给出长度为 4 的环；
+<ul>
 <li>{a, b} -&gt; {b, d} -&gt; {d, c} -&gt; {c, a}</li>
-<li>….</li>
-</ul>
-</li>
-<li>give the degree sequence of graph;<br>给出图的度序列；<ul>
-<li>0, 0, 1, 2, 2.<br>degree    0  1  2  3  4<br>sequence 0  0  1  2  2</li>
-<li>No vertex has degree 0 or 1. Vertex a is of degree 2. Vertices d and e are of degree 3 while vertices b and c have degree 4.<br>0, 0, 1, 2, 2. 没有顶点的度数为0或1。顶点a的度数为2。顶点d和e的度数为3，而顶点b和c的度数为4。</li>
-</ul>
-</li>
-<li>verify that $\sum_{v\in{V (G)}}deg (v)&#x3D;2\cdot|E(G)|$ holds (cf. slide 6, week 5).<br>验证 $\sum_{v\in{V (G)}}deg (v)&#x3D;2\cdot|E(G)|$ 是否成立 (参见第 5 周幻灯片第 6 页)<ul>
-<li>The graph has one vertex of degree 2, two vertices of degree 3 and two vertices of degree 4. Hence, $\sum_{v\in V(G)} \mbox{deg}(v)&#x3D;1\cdot 2+2\cdot 3+2\cdot 4&#x3D;16$. This is twice the number of edges, $|E(G)|&#x3D;8$.<br>这个图有一个度为2的顶点，两个度为3的顶点和两个度为4的顶点。因此，$\sum_{v\in V(G)} \mbox{deg}(v)&#x3D;1\cdot 2+2\cdot 3+2\cdot 4&#x3D;16$。这是边的数量的两倍，即$|E(G)|&#x3D;8$。</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h3><ul>
-<li>Is the above graph G planar?<br>上述图 G 是否为可平面图？<ul>
-<li>The graph is planar: Redraw one of the edges {<em>b</em>,<em>e</em>} or {<em>c</em>,<em>d</em>} such that it does not intersect with any of the other edges.<br>这个图是可平面的：重新绘制{<em>b</em>,<em>e</em>}或{<em>c</em>,<em>d</em>}中的一条边，使其不与任何其他边相交。</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-3"><a href="#1-3" class="headerlink" title="1.3"></a>1.3</h3><ul>
-<li>Draw a complete bipartite <em>K</em><sub>2,2</sub> graph. Find both an Euler <strong>circuit</strong> and a Hamiltonian <strong>path</strong> in your graph and determine their respective length.<br>画出一个完全二分图 $K_{2,2}$。在你的图中找到一条欧拉回路和一条哈密顿路径，并确定它们各自的长度。<ul>
-<li>![[COMP9020 Week 5 Problem Set 2023-03-23 23.08.20.excalidraw|200]]</li>
-<li>Euler <strong>circuit</strong>: {a, c} -&gt; {c, b} -&gt; {b, d} -&gt; {d, a}</li>
-<li>Hamiltonian <strong>path</strong>: {a, c} -&gt; {c, b} -&gt; {b, d}</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-4"><a href="#1-4" class="headerlink" title="1.4"></a>1.4</h3><ul>
-<li>What is the chromatic number $\chi$ of your graph for Exercise 1.3? And what is its clique number $\kappa$?<br>对于问题 1.3 的图，它的色数 $\chi$ 是多少？它的团数 $\kappa$ 是多少？<ul>
-<li>$\chi{(K_{2,2})}&#x3D;2$  </li>
-<li>$\kappa{(K_{2,2})}&#x3D;2$ </li>
-<li>Two colours are both necessary and sufficient. There are cliques of size 2 (each edge is one such clique) but no “triangles”, i.e., 3-cliques.</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-（Graph-properties）"><a href="#2-（Graph-properties）" class="headerlink" title="2. （Graph properties）"></a>2. （Graph properties）</h2><ul>
-<li>The complete bipartite graph $K_{5,5}$ has no cycle of length five<br>完全二分图 K 5,5 没有长度为 5 的圈<ul>
-<li>$K_{5,5}$ ![[COMP9020 Week 5 Problem Set 2023-03-21 14.56.05.excalidraw]]</li>
-<li><strong>True.</strong> In general, bipartite graphs can only have cycles of even length. If $V_{1},V_{2}$ denote the two groups of nodes in the bipartite graph, then every path starting from, say, a node $v\in{V_{1}}$ must alternate its vertices between $V_{1}$ and $V2$. If it is a cycle (that is, eventually returns to node $v$), it must have an even number of such alternations, in other words, it contains an even number of edges.<br><strong>正确</strong>。通常来说，二分图只能有偶数长度的循环。如果$V_{1},V_{2}$表示二分图中的两个节点组，则从一个节点$v\in{V_{1}}$开始的每条路径必须在$V_{1}$和$V_{2}$之间交替其顶点。如果它是一个循环（即最终返回到节点$v$），它必须有偶数个这样的交替，换句话说，它包含偶数条边。</li>
-</ul>
-</li>
-<li>If you add a new edge to a cycle $C_{5}$, the resulting graph will always contain a 3-clique.<br>如果你向长度为 $C_5$ 的环中添加一条新的边，那么得到的图形总是包含一个3-团<ul>
-<li><strong>True.</strong> The two newly connected vertices will always form a 3-clique with one of the other vertices.<br><strong>正确</strong>。两个新连接的顶点将始终与其他一个顶点形成一个3-团。</li>
-</ul>
-</li>
-<li>If you remove two edges from $K_{5}$, the resulting graph will always have a clique number of 4.<br>如果从 $K_{5}$ 中移除两条边，则所得到的图始终具有 4 个团。<ul>
-<li><strong>False.</strong> Remove any two edges which have no common vertex. In the resulting graph there will be no four fully interconnected vertices; in other words it will not contain <em>K</em><sub>4</sub>, and will have a clique number of 3.<br><strong>错误</strong>。移除任何两条没有公共顶点的边。在得到的图中，不会有四个完全互连的顶点；换句话说，它不包含_K_4，其团数为3。</li>
-</ul>
-</li>
-<li>If you remove three edges from graph $G$ in Exercise 1.1, the resulting graph will always be acyclic or disconnected.<br>如果从问题 1.1 的图 $G$ 中移除三条边，则所得到的图始终是无环的或者不连通的。<ul>
-<li><strong>False.</strong> The resulting graph does not satisfy $|V|&#x3D;|E|+1$, hence if it is connected then it cannot be a tree and therefore must contain a cycle.<br><strong>错误</strong>。由于$|V|&#x3D;|E|+1$，因此得到的图不满足此条件。因此，如果该图是连通的，则不能是一棵树，因此必须包含一个循环。</li>
-</ul>
-</li>
-<li>There is a graph with degree sequence 0, 1, 5, 1.<br>存在一个度序列为 0、1、5、1 的图。<ul>
-<li><strong>True.</strong> Take, for example, the graph from the answer to Exercise 6.1.13 (a) on <a target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">slide 9</a> (week 5) and add a path of length 2 (with 2 new vertices) to one of the four vertices.<br><strong>正确</strong>。例如，考虑第5周<a target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">第9页</a>上练习6.1.13（a）的答案所示的图，并向其中的一个四个顶点之一添加长度为2的路径（带有2个新顶点）。</li>
-</ul>
-</li>
-<li>There are $3·3 &#x3D; 9$ different automorphisms of $K_{3}$.<br>$K_{3}$ 有 $3\cdot 3&#x3D;9$ 种不同的自同构。</li>
-</ul>
-<h2 id="3-Graph-traversal"><a href="#3-Graph-traversal" class="headerlink" title="3. (Graph traversal)"></a>3. (Graph traversal)</h2><p>For each of the following graphs, show a Hamiltonian path or argue why no such path exists.<br>对于以下每个图形，展示一个哈密顿路径，或说明为什么不存在这样的路径。</p>
+<li>....</li>
+</ul></li>
+<li>give the degree sequence of graph; 给出图的度序列；
 <ul>
-<li>A connected graph with degree sequence 0,2,2,2 and clique number 3.<br>度序列为 0,2,2,2 且团数为 3 的连通图。<ul>
-<li>![[COMP9020 Week 5 Problem Set 2023-03-23 23.38.06.excalidraw|200]]</li>
-<li>Hamiltonian path: {a, b} -&gt; {b, c} -&gt; {c, d} -&gt; {d, e} -&gt; {e, f}</li>
-</ul>
-</li>
-<li>$K_{4,3}$<ul>
-<li>![[COMP9020 Week 5 Problem Set 2023-03-23 23.42.08.excalidraw|300]]</li>
-<li>Hamiltonian path: {v1, u1} -&gt; {u1, v2} -&gt; {v2, u2} -&gt; {u2, v3} -&gt; {v3, u3} -&gt; {u3, v4}</li>
-</ul>
-</li>
-<li>$K_{1,4,1}$<ul>
-<li><strong>False.</strong> Even if you start with one of the 4 vertices in the largest partition, you can visit at most 3 of them before you have to return to a previously visited vertex from one of the other two partitions.<br><strong>错误</strong>。即使你从最大分区中的一个顶点开始，也可以在必须返回到另外两个分区中的一个之前访问最多4个顶点（即该二分图中的所有顶点）</li>
-</ul>
-</li>
-<li>$K_{4,2,2}$<ul>
-<li>![[COMP9020 Week 5 Problem Set 2023-03-24 00.20.45.excalidraw|300]]</li>
-</ul>
-</li>
-<li><strong>All</strong> graphs with degree sequence 0, 3, 1, 1.<br>所有度序列为 0,3,1,1 的图。<ul>
-<li><strong>False.</strong> The top right tree on <a target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">slide 17</a> (week 5) is the only graph on 5 nodes that has one vertex of degree 3, one vertex of degree 2 plus three vertices of degree 1. This tree has no Hamiltonian path since you have to go through the top node at least twice in order to visit all three nodes of degree 1.<br><strong>错误</strong>。第5周<a target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">第17页</a>上的右上方树是唯一一个具有一个度为3的顶点，一个度为2加上三个度为1的顶点的5个节点图。这棵树没有哈密顿路径，因为你必须至少通过顶部节点两次才能访问所有度为1的三个节点。</li>
-</ul>
-</li>
-<li><strong>All</strong> graphs with degree sequence 0, 0, 6.<br>所有度序列为 0,0,6 的图。<ul>
-<li><strong>False.</strong> A graph consisting of two disconnected sub-graphs <em>K</em><sub>3</sub> has degree sequence 0,0,6 but does not contain a Hamiltonian path.<br><strong>错误</strong>。由两个不连通的_K_3子图组成的图具有度序列0,0,6，但不包含哈密顿路径。</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-Graph-colouring"><a href="#4-Graph-colouring" class="headerlink" title="4. (Graph colouring)"></a>4. (Graph colouring)</h2><p>For each of the following graphs <em>G</em>, determine its chromatic number $\chi(G)$. If there are different graphs that satisfy the specification, choose one with the <em>smallest</em> chromatic number.<br>对于以下每个图形 $G$，确定其色数 $\chi(G)$。如果存在满足规定的不同图形，则选择色数最小的图形。</p>
+<li>0, 0, 1, 2, 2. degree 0 1 2 3 4 sequence 0 0 1 2 2</li>
+<li>No vertex has degree 0 or 1. Vertex a is of degree 2. Vertices d and
+e are of degree 3 while vertices b and c have degree 4. 0, 0, 1, 2, 2.
+没有顶点的度数为0或1。顶点a的度数为2。顶点d和e的度数为3，而顶点b和c的度数为4。</li>
+</ul></li>
+<li>verify that <span class="math inline">\(\sum_{v\in{V (G)}}deg
+(v)=2\cdot|E(G)|\)</span> holds (cf. slide 6, week 5). 验证 <span
+class="math inline">\(\sum_{v\in{V (G)}}deg (v)=2\cdot|E(G)|\)</span>
+是否成立 (参见第 5 周幻灯片第 6 页)
 <ul>
-<li>The graph on the left-hand side on <a target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">slide 39</a> (week 5).<br><a target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">第 5 周幻灯片第 39 页</a> 左侧的图形。<ul>
-<li>The graph has a cycle of length 5, hence 3 colours are necessary. It is possible to find such a 3-colouring, so $\chi(G)&#x3D;3$.<br>该图有一个长度为5的环，因此需要3种颜色。可以找到这样的3种着色方式，因此$\chi(G)&#x3D;3$。</li>
+<li>The graph has one vertex of degree 2, two vertices of degree 3 and
+two vertices of degree 4. Hence, <span class="math inline">\(\sum_{v\in
+V(G)} \mbox{deg}(v)=1\cdot 2+2\cdot 3+2\cdot 4=16\)</span>. This is
+twice the number of edges, <span
+class="math inline">\(|E(G)|=8\)</span>.
+这个图有一个度为2的顶点，两个度为3的顶点和两个度为4的顶点。因此，<span
+class="math inline">\(\sum_{v\in V(G)} \mbox{deg}(v)=1\cdot 2+2\cdot
+3+2\cdot 4=16\)</span>。这是边的数量的两倍，即<span
+class="math inline">\(|E(G)|=8\)</span>。</li>
+</ul></li>
 </ul>
-</li>
-<li>A graph obtained by adding three new edges to $C_{8}$.<br>在 $C_{8}$ 中添加三条新边后的图形<ul>
-<li>$\chi(C_8)&#x3D;2$, and you can add three edges so that the resulting graph still satisfies $\chi(G)&#x3D;2$: For example, connect the 1<sup>st</sup> and 4<sup>th</sup> node in the cycle, the 2<sup>nd</sup> and 5<sup>th</sup> node, plus the 3<sup>rd</sup> and 6<sup>th</sup> node.<br>$\chi(C_8)&#x3D;2$，并且您可以添加三条边，使得得到的图仍满足$\chi(G)&#x3D;2$：例如，连接循环中的第1个和第4个节点，第2个和第5个节点，以及第3个和第6个节点。</li>
-</ul>
-</li>
-<li>A graph obtained by removing three edges from $K_{3,3}$<br>从 $K_{3,3}$ 中删除三条边后的图形。<ul>
-<li>The remaining graph will still be bipartite, hence $\chi(G)&#x3D;2$.<br>剩下的图仍将是二分图，因此$\chi(G)&#x3D;2$。</li>
-</ul>
-</li>
-<li>A graph obtained by removing three edges from $K_{5}$<br>从 $K_{5}$ 中删除三条边后的图形。<ul>
-<li>$\chi(K_5)&#x3D;5$, but if you remove two edges {<em>v</em><sub>1</sub>,<em>w</em><sub>1</sub>} and {<em>v</em><sub>2</sub>,<em>w</em><sub>2</sub>} with no vertex in common, then <em>v</em><sub><i>i</i></sub> and <em>w</em><sub><i>i</i></sub> can be coloured the same, for <em>i</em> &#x3D; 1,2. Hence, 3 colours are sufficient (and necessary).<br>$\chi(K_5)&#x3D;5$，但是如果您删除没有公共顶点的两条边{<em>v</em><sub>1</sub>,<em>w</em><sub>1</sub>}和{<em>v</em><sub>2</sub>,<em>w</em><sub>2</sub>}，则可以对_i_&#x3D;1,2为值的_v_<i> i</i>和_w_<i> i</i>进行相同的着色。因此，3种颜色足够（也是必要的）。</li>
-</ul>
-</li>
-</ul>
-<h2 id="5-Planar-graphs"><a href="#5-Planar-graphs" class="headerlink" title="5. (Planar graphs)"></a>5. (Planar graphs)</h2><ul>
-<li>All graphs whose clique number is 4 are planar.<br>所有团数为 4 的图形都是可平面的。<ul>
-<li><strong>False.</strong> For example, <em>K</em><sub>3,3</sub> has a clique number of only 2 but is not planar. You can add more edges to turn <em>K</em><sub>3,3</sub> into a graph whose clique number is 4 (and which, of course, remains nonplanar).<br><strong>False.</strong> 例如，<em>K</em><sub>3,3</sub>的团数仅为2，但它不是可平面的。您可以添加更多的边来将_K_<sub>3,3</sub>转化为团数为4的图（当然，它仍然是不可平面的）。</li>
-</ul>
-</li>
-<li>All graphs whose chromatic number is 2 are planar.<br>所有色数为 2 的图形都是可平面的。<ul>
-<li><strong>False.</strong> For example, <em>K</em><sub>3,3</sub> has a chromatic number of 2 but is not planar.<br><strong>False.</strong> 例如，<em>K</em><sub>3,3</sub>的色数为2，但它不是可平面的。</li>
-</ul>
-</li>
-<li>All graphs with 5 nodes and 9 edges are planar.<br>有 5 个节点和 9 条边的图形都是可平面的。<ul>
-<li><strong>True.</strong> For the minimal nonplanar graph <em>K</em><sub>3,3</sub> you need 6 nodes, and for the other minimal nonplanar graph <em>K</em><sub>5</sub> you need 10 edges.<br><strong>正确。</strong> 对于最小的非平面图_K_<sub>3,3</sub>，你需要6个节点，而对于另一个最小的非平面图_K_<sub>5</sub>，你需要10条边。</li>
-</ul>
-</li>
-<li>You cannot obtain a nonplanar graph by adding 3 edges to a tree.<br>无法通过向树中添加 3 条边获得非可平面图形。<ul>
-<li><strong>True.</strong> Every tree satisfies $|E|&#x3D;|V|-1$. Adding 3 edges gives you a graph with $|E|&#x3D;|V|+2$, but you would need three more edges than vertices for <em>K</em><sub>3,3</sub>, and five more edges than vertices for <em>K</em><sub>5</sub>.<br><strong>正确。</strong> 每棵树都满足$|E|&#x3D;|V|-1$。添加3条边会得到一个$|E|&#x3D;|V|+2$的图形，但对于_K_<sub>3,3</sub>，你需要比节点多三条边，对于_K_<sub>5</sub>，你需要比节点多五条边。</li>
-</ul>
-</li>
-<li>You cannot obtain a nonplanar graph by adding 3 edges to a cycle.<br>无法通过向环中添加 3 条边获得非可平面图形。<ul>
-<li><strong>False.</strong> You can add 3 edges to <em>C</em><sub>6</sub> (a graph with 6 vertices and 6 edges) in such a way that you obtain the nonplanar <em>K</em><sub>3,3</sub> (a graph with 6 vertices and 9 edges).<br><strong>错误。</strong> 你可以添加3条边到 C<sub>6</sub>（一个有6个顶点和6条边的图），以便以一种方式得到非平面的 K<sub>3,3</sub>（一个有6个顶点和9条边的图）。</li>
-</ul>
-</li>
-<li>You can obtain a planar graph by removing two edges from $K_{6}$<br>可以通过从 $K_{6}$ 中删除两条边来获得可平面图形。<ul>
-<li><strong>False.</strong> The remaining graph will always contain <em>K</em><sub>3,3</sub>, which is nonplanar.<br><strong>错误。</strong> 剩下的图形总会包含非平面图 K<sub>3,3</sub>。</li>
-</ul>
-</li>
-</ul>
-<h2 id="6-Constructing-graphs"><a href="#6-Constructing-graphs" class="headerlink" title="6. (Constructing graphs)"></a>6. (Constructing graphs)</h2><p>A graph $G$ is a 2-3 tree if:<br>一个图 $G$ 是一个 2-3 树，如果:</p>
+<h3 id="section-1">1.2</h3>
 <ul>
-<li>$G$ is a rooted tree.<br>$G$ 是一棵根树。</li>
-<li>Each node has either 2 or 3 children (unless it is a <em>leaf</em> node, which has no children).<br>每个节点要么有 2 个子节点，要么有 3 个子节点（除非它是一个叶子节点，没有子节点）。</li>
-<li>All paths from the root to the leaves have the same length.<br>从根到叶子节点的所有路径长度相同。<br>There are seven different types of 2-3 trees of height 2 (i.e., which are non-isomorphic). Draw one tree of each type.<br>共有七种高度为 2 的不同类型的 2-3 树（即非同构的）。画出每种类型的一棵树。</li>
+<li>Is the above graph G planar? 上述图 G 是否为可平面图？
+<ul>
+<li>The graph is planar: Redraw one of the edges {<em>b</em>,<em>e</em>}
+or {<em>c</em>,<em>d</em>} such that it does not intersect with any of
+the other edges.
+这个图是可平面的：重新绘制{<em>b</em>,<em>e</em>}或{<em>c</em>,<em>d</em>}中的一条边，使其不与任何其他边相交。</li>
+</ul></li>
+</ul>
+<h3 id="section-2">1.3</h3>
+<ul>
+<li>Draw a complete bipartite <em>K</em><sub>2,2</sub> graph. Find both
+an Euler <strong>circuit</strong> and a Hamiltonian
+<strong>path</strong> in your graph and determine their respective
+length. 画出一个完全二分图 <span
+class="math inline">\(K_{2,2}\)</span>。在你的图中找到一条欧拉回路和一条哈密顿路径，并确定它们各自的长度。
+<ul>
+<li>[[COMP9020 Week 5 Problem Set 2023-03-23
+23.08.20.excalidraw|200]]</li>
+<li>Euler <strong>circuit</strong>: {a, c} -&gt; {c, b} -&gt; {b, d}
+-&gt; {d, a}</li>
+<li>Hamiltonian <strong>path</strong>: {a, c} -&gt; {c, b} -&gt; {b,
+d}</li>
+</ul></li>
+</ul>
+<h3 id="section-3">1.4</h3>
+<ul>
+<li>What is the chromatic number <span
+class="math inline">\(\chi\)</span> of your graph for Exercise 1.3? And
+what is its clique number <span class="math inline">\(\kappa\)</span>?
+对于问题 1.3 的图，它的色数 <span class="math inline">\(\chi\)</span>
+是多少？它的团数 <span class="math inline">\(\kappa\)</span> 是多少？
+<ul>
+<li><span class="math inline">\(\chi{(K_{2,2})}=2\)</span><br />
+</li>
+<li><span class="math inline">\(\kappa{(K_{2,2})}=2\)</span></li>
+<li>Two colours are both necessary and sufficient. There are cliques of
+size 2 (each edge is one such clique) but no "triangles", i.e.,
+3-cliques.</li>
+</ul></li>
+</ul>
+<h2 id="graph-properties">2. （Graph properties）</h2>
+<ul>
+<li>The complete bipartite graph <span
+class="math inline">\(K_{5,5}\)</span> has no cycle of length five
+完全二分图 K 5,5 没有长度为 5 的圈
+<ul>
+<li><span class="math inline">\(K_{5,5}\)</span> [[COMP9020 Week 5
+Problem Set 2023-03-21 14.56.05.excalidraw]]</li>
+<li><strong>True.</strong> In general, bipartite graphs can only have
+cycles of even length. If <span
+class="math inline">\(V_{1},V_{2}\)</span> denote the two groups of
+nodes in the bipartite graph, then every path starting from, say, a
+node <span class="math inline">\(v\in{V_{1}}\)</span> must alternate its
+vertices between <span class="math inline">\(V_{1}\)</span> and <span
+class="math inline">\(V2\)</span>. If it is a cycle (that is, eventually
+returns to node <span class="math inline">\(v\)</span>), it must have an
+even number of such alternations, in other words, it contains an even
+number of edges.
+<strong>正确</strong>。通常来说，二分图只能有偶数长度的循环。如果<span
+class="math inline">\(V_{1},V_{2}\)</span>表示二分图中的两个节点组，则从一个节点<span
+class="math inline">\(v\in{V_{1}}\)</span>开始的每条路径必须在<span
+class="math inline">\(V_{1}\)</span>和<span
+class="math inline">\(V_{2}\)</span>之间交替其顶点。如果它是一个循环（即最终返回到节点<span
+class="math inline">\(v\)</span>），它必须有偶数个这样的交替，换句话说，它包含偶数条边。</li>
+</ul></li>
+<li>If you add a new edge to a cycle <span
+class="math inline">\(C_{5}\)</span>, the resulting graph will always
+contain a 3-clique. 如果你向长度为 <span
+class="math inline">\(C_5\)</span>
+的环中添加一条新的边，那么得到的图形总是包含一个3-团
+<ul>
+<li><strong>True.</strong> The two newly connected vertices will always
+form a 3-clique with one of the other vertices.
+<strong>正确</strong>。两个新连接的顶点将始终与其他一个顶点形成一个3-团。</li>
+</ul></li>
+<li>If you remove two edges from <span
+class="math inline">\(K_{5}\)</span>, the resulting graph will always
+have a clique number of 4. 如果从 <span
+class="math inline">\(K_{5}\)</span> 中移除两条边，则所得到的图始终具有
+4 个团。
+<ul>
+<li><strong>False.</strong> Remove any two edges which have no common
+vertex. In the resulting graph there will be no four fully
+interconnected vertices; in other words it will not contain
+<em>K</em><sub>4</sub>, and will have a clique number of 3.
+<strong>错误</strong>。移除任何两条没有公共顶点的边。在得到的图中，不会有四个完全互连的顶点；换句话说，它不包含_K_4，其团数为3。</li>
+</ul></li>
+<li>If you remove three edges from graph <span
+class="math inline">\(G\)</span> in Exercise 1.1, the resulting graph
+will always be acyclic or disconnected. 如果从问题 1.1 的图 <span
+class="math inline">\(G\)</span>
+中移除三条边，则所得到的图始终是无环的或者不连通的。
+<ul>
+<li><strong>False.</strong> The resulting graph does not satisfy <span
+class="math inline">\(|V|=|E|+1\)</span>, hence if it is connected then
+it cannot be a tree and therefore must contain a cycle.
+<strong>错误</strong>。由于<span
+class="math inline">\(|V|=|E|+1\)</span>，因此得到的图不满足此条件。因此，如果该图是连通的，则不能是一棵树，因此必须包含一个循环。</li>
+</ul></li>
+<li>There is a graph with degree sequence 0, 1, 5, 1. 存在一个度序列为
+0、1、5、1 的图。
+<ul>
+<li><strong>True.</strong> Take, for example, the graph from the answer
+to Exercise 6.1.13 (a) on <a
+target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">slide
+9</a> (week 5) and add a path of length 2 (with 2 new vertices) to one
+of the four vertices. <strong>正确</strong>。例如，考虑第5周<a
+target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">第9页</a>上练习6.1.13（a）的答案所示的图，并向其中的一个四个顶点之一添加长度为2的路径（带有2个新顶点）。</li>
+</ul></li>
+<li>There are <span class="math inline">\(3·3 = 9\)</span> different
+automorphisms of <span class="math inline">\(K_{3}\)</span>. <span
+class="math inline">\(K_{3}\)</span> 有 <span
+class="math inline">\(3\cdot 3=9\)</span> 种不同的自同构。</li>
+</ul>
+<h2 id="graph-traversal">3. (Graph traversal)</h2>
+<p>For each of the following graphs, show a Hamiltonian path or argue
+why no such path exists.
+对于以下每个图形，展示一个哈密顿路径，或说明为什么不存在这样的路径。</p>
+<ul>
+<li>A connected graph with degree sequence 0,2,2,2 and clique number 3.
+度序列为 0,2,2,2 且团数为 3 的连通图。
+<ul>
+<li>[[COMP9020 Week 5 Problem Set 2023-03-23
+23.38.06.excalidraw|200]]</li>
+<li>Hamiltonian path: {a, b} -&gt; {b, c} -&gt; {c, d} -&gt; {d, e}
+-&gt; {e, f}</li>
+</ul></li>
+<li><span class="math inline">\(K_{4,3}\)</span>
+<ul>
+<li>[[COMP9020 Week 5 Problem Set 2023-03-23
+23.42.08.excalidraw|300]]</li>
+<li>Hamiltonian path: {v1, u1} -&gt; {u1, v2} -&gt; {v2, u2} -&gt; {u2,
+v3} -&gt; {v3, u3} -&gt; {u3, v4}</li>
+</ul></li>
+<li><span class="math inline">\(K_{1,4,1}\)</span>
+<ul>
+<li><strong>False.</strong> Even if you start with one of the 4 vertices
+in the largest partition, you can visit at most 3 of them before you
+have to return to a previously visited vertex from one of the other two
+partitions.
+<strong>错误</strong>。即使你从最大分区中的一个顶点开始，也可以在必须返回到另外两个分区中的一个之前访问最多4个顶点（即该二分图中的所有顶点）</li>
+</ul></li>
+<li><span class="math inline">\(K_{4,2,2}\)</span>
+<ul>
+<li>[[COMP9020 Week 5 Problem Set 2023-03-24
+00.20.45.excalidraw|300]]</li>
+</ul></li>
+<li><strong>All</strong> graphs with degree sequence 0, 3, 1, 1.
+所有度序列为 0,3,1,1 的图。
+<ul>
+<li><strong>False.</strong> The top right tree on <a
+target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">slide
+17</a> (week 5) is the only graph on 5 nodes that has one vertex of
+degree 3, one vertex of degree 2 plus three vertices of degree 1. This
+tree has no Hamiltonian path since you have to go through the top node
+at least twice in order to visit all three nodes of degree 1.
+<strong>错误</strong>。第5周<a
+target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">第17页</a>上的右上方树是唯一一个具有一个度为3的顶点，一个度为2加上三个度为1的顶点的5个节点图。这棵树没有哈密顿路径，因为你必须至少通过顶部节点两次才能访问所有度为1的三个节点。</li>
+</ul></li>
+<li><strong>All</strong> graphs with degree sequence 0, 0, 6.
+所有度序列为 0,0,6 的图。
+<ul>
+<li><strong>False.</strong> A graph consisting of two disconnected
+sub-graphs <em>K</em><sub>3</sub> has degree sequence 0,0,6 but does not
+contain a Hamiltonian path.
+<strong>错误</strong>。由两个不连通的_K_3子图组成的图具有度序列0,0,6，但不包含哈密顿路径。</li>
+</ul></li>
+</ul>
+<h2 id="graph-colouring">4. (Graph colouring)</h2>
+<p>For each of the following graphs <em>G</em>, determine its chromatic
+number <span class="math inline">\(\chi(G)\)</span>. If there are
+different graphs that satisfy the specification, choose one with the
+<em>smallest</em> chromatic number. 对于以下每个图形 <span
+class="math inline">\(G\)</span>，确定其色数 <span
+class="math inline">\(\chi(G)\)</span>。如果存在满足规定的不同图形，则选择色数最小的图形。</p>
+<ul>
+<li>The graph on the left-hand side on <a
+target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">slide
+39</a> (week 5). <a
+target="_blank" rel="noopener" href="https://www.cse.unsw.edu.au/~cs9020/23T1/lecs/week5.pdf">第 5
+周幻灯片第 39 页</a> 左侧的图形。
+<ul>
+<li>The graph has a cycle of length 5, hence 3 colours are necessary. It
+is possible to find such a 3-colouring, so <span
+class="math inline">\(\chi(G)=3\)</span>.
+该图有一个长度为5的环，因此需要3种颜色。可以找到这样的3种着色方式，因此<span
+class="math inline">\(\chi(G)=3\)</span>。</li>
+</ul></li>
+<li>A graph obtained by adding three new edges to <span
+class="math inline">\(C_{8}\)</span>. 在 <span
+class="math inline">\(C_{8}\)</span> 中添加三条新边后的图形
+<ul>
+<li><span class="math inline">\(\chi(C_8)=2\)</span>, and you can add
+three edges so that the resulting graph still satisfies <span
+class="math inline">\(\chi(G)=2\)</span>: For example, connect the
+1<sup>st</sup> and 4<sup>th</sup> node in the cycle, the 2<sup>nd</sup>
+and 5<sup>th</sup> node, plus the 3<sup>rd</sup> and 6<sup>th</sup>
+node. <span
+class="math inline">\(\chi(C_8)=2\)</span>，并且您可以添加三条边，使得得到的图仍满足<span
+class="math inline">\(\chi(G)=2\)</span>：例如，连接循环中的第1个和第4个节点，第2个和第5个节点，以及第3个和第6个节点。</li>
+</ul></li>
+<li>A graph obtained by removing three edges from <span
+class="math inline">\(K_{3,3}\)</span> 从 <span
+class="math inline">\(K_{3,3}\)</span> 中删除三条边后的图形。
+<ul>
+<li>The remaining graph will still be bipartite, hence <span
+class="math inline">\(\chi(G)=2\)</span>.
+剩下的图仍将是二分图，因此<span
+class="math inline">\(\chi(G)=2\)</span>。</li>
+</ul></li>
+<li>A graph obtained by removing three edges from <span
+class="math inline">\(K_{5}\)</span> 从 <span
+class="math inline">\(K_{5}\)</span> 中删除三条边后的图形。
+<ul>
+<li><span class="math inline">\(\chi(K_5)=5\)</span>, but if you remove
+two edges {<em>v</em><sub>1</sub>,<em>w</em><sub>1</sub>} and
+{<em>v</em><sub>2</sub>,<em>w</em><sub>2</sub>} with no vertex in
+common, then <em>v</em><sub><i>i</i></sub> and
+<em>w</em><sub><i>i</i></sub> can be coloured the same, for <em>i</em> =
+1,2. Hence, 3 colours are sufficient (and necessary). <span
+class="math inline">\(\chi(K_5)=5\)</span>，但是如果您删除没有公共顶点的两条边{<em>v</em><sub>1</sub>,<em>w</em><sub>1</sub>}和{<em>v</em><sub>2</sub>,<em>w</em><sub>2</sub>}，则可以对_i_=1,2为值的_v_<i>
+i</i>和_w_<i>
+i</i>进行相同的着色。因此，3种颜色足够（也是必要的）。</li>
+</ul></li>
+</ul>
+<h2 id="planar-graphs">5. (Planar graphs)</h2>
+<ul>
+<li>All graphs whose clique number is 4 are planar. 所有团数为 4
+的图形都是可平面的。
+<ul>
+<li><strong>False.</strong> For example, <em>K</em><sub>3,3</sub> has a
+clique number of only 2 but is not planar. You can add more edges to
+turn <em>K</em><sub>3,3</sub> into a graph whose clique number is 4 (and
+which, of course, remains nonplanar). <strong>False.</strong>
+例如，<em>K</em><sub>3,3</sub>的团数仅为2，但它不是可平面的。您可以添加更多的边来将_K_<sub>3,3</sub>转化为团数为4的图（当然，它仍然是不可平面的）。</li>
+</ul></li>
+<li>All graphs whose chromatic number is 2 are planar. 所有色数为 2
+的图形都是可平面的。
+<ul>
+<li><strong>False.</strong> For example, <em>K</em><sub>3,3</sub> has a
+chromatic number of 2 but is not planar. <strong>False.</strong>
+例如，<em>K</em><sub>3,3</sub>的色数为2，但它不是可平面的。</li>
+</ul></li>
+<li>All graphs with 5 nodes and 9 edges are planar. 有 5 个节点和 9
+条边的图形都是可平面的。
+<ul>
+<li><strong>True.</strong> For the minimal nonplanar graph
+<em>K</em><sub>3,3</sub> you need 6 nodes, and for the other minimal
+nonplanar graph <em>K</em><sub>5</sub> you need 10 edges.
+<strong>正确。</strong>
+对于最小的非平面图_K_<sub>3,3</sub>，你需要6个节点，而对于另一个最小的非平面图_K_<sub>5</sub>，你需要10条边。</li>
+</ul></li>
+<li>You cannot obtain a nonplanar graph by adding 3 edges to a tree.
+无法通过向树中添加 3 条边获得非可平面图形。
+<ul>
+<li><strong>True.</strong> Every tree satisfies <span
+class="math inline">\(|E|=|V|-1\)</span>. Adding 3 edges gives you a
+graph with <span class="math inline">\(|E|=|V|+2\)</span>, but you would
+need three more edges than vertices for <em>K</em><sub>3,3</sub>, and
+five more edges than vertices for <em>K</em><sub>5</sub>.
+<strong>正确。</strong> 每棵树都满足<span
+class="math inline">\(|E|=|V|-1\)</span>。添加3条边会得到一个<span
+class="math inline">\(|E|=|V|+2\)</span>的图形，但对于_K_<sub>3,3</sub>，你需要比节点多三条边，对于_K_<sub>5</sub>，你需要比节点多五条边。</li>
+</ul></li>
+<li>You cannot obtain a nonplanar graph by adding 3 edges to a cycle.
+无法通过向环中添加 3 条边获得非可平面图形。
+<ul>
+<li><strong>False.</strong> You can add 3 edges to
+<em>C</em><sub>6</sub> (a graph with 6 vertices and 6 edges) in such a
+way that you obtain the nonplanar <em>K</em><sub>3,3</sub> (a graph with
+6 vertices and 9 edges). <strong>错误。</strong> 你可以添加3条边到
+C<sub>6</sub>（一个有6个顶点和6条边的图），以便以一种方式得到非平面的
+K<sub>3,3</sub>（一个有6个顶点和9条边的图）。</li>
+</ul></li>
+<li>You can obtain a planar graph by removing two edges from <span
+class="math inline">\(K_{6}\)</span> 可以通过从 <span
+class="math inline">\(K_{6}\)</span> 中删除两条边来获得可平面图形。
+<ul>
+<li><strong>False.</strong> The remaining graph will always contain
+<em>K</em><sub>3,3</sub>, which is nonplanar. <strong>错误。</strong>
+剩下的图形总会包含非平面图 K<sub>3,3</sub>。</li>
+</ul></li>
+</ul>
+<h2 id="constructing-graphs">6. (Constructing graphs)</h2>
+<p>A graph <span class="math inline">\(G\)</span> is a 2-3 tree if:
+一个图 <span class="math inline">\(G\)</span> 是一个 2-3 树，如果:</p>
+<ul>
+<li><span class="math inline">\(G\)</span> is a rooted tree. <span
+class="math inline">\(G\)</span> 是一棵根树。</li>
+<li>Each node has either 2 or 3 children (unless it is a <em>leaf</em>
+node, which has no children). 每个节点要么有 2 个子节点，要么有 3
+个子节点（除非它是一个叶子节点，没有子节点）。</li>
+<li>All paths from the root to the leaves have the same length.
+从根到叶子节点的所有路径长度相同。 There are seven different types of
+2-3 trees of height 2 (i.e., which are non-isomorphic). Draw one tree of
+each type. 共有七种高度为 2 的不同类型的 2-3
+树（即非同构的）。画出每种类型的一棵树。</li>
 </ul>
 <blockquote>
 <p>[!note] Exercise 6</p>
-<p>![[COMP9020 Week 5 Problem Set 2023-03-24 00.43.37.excalidraw]]</p>
+<p>[[COMP9020 Week 5 Problem Set 2023-03-24 00.43.37.excalidraw]]</p>
 </blockquote>
-<h2 id="7-Challenge-Exercise"><a href="#7-Challenge-Exercise" class="headerlink" title="7. Challenge Exercise"></a>7. <strong>Challenge Exercise</strong></h2><h3 id="7-1"><a href="#7-1" class="headerlink" title="7.1"></a>7.1</h3><p>What is the minimum number of edges that need to be removed from $K_{5}$ so that the resulting graph has a chromatic number of<br>从 $K_{5}$ 中最少需要删除多少条边，使得结果图的色数为</p>
+<h2 id="challenge-exercise">7. <strong>Challenge Exercise</strong></h2>
+<h3 id="section-4">7.1</h3>
+<p>What is the minimum number of edges that need to be removed
+from <span class="math inline">\(K_{5}\)</span> so that the resulting
+graph has a chromatic number of 从 <span
+class="math inline">\(K_{5}\)</span>
+中最少需要删除多少条边，使得结果图的色数为</p>
 <ul>
-<li>3 ?<ul>
-<li>2 edges. To achieve $\chi&#x3D;3$, one needs (at least) to avoid having any 4-cliques. Removing one edge leaves a 4-clique (actually two such cliques — including any one but not both of that edge’s endpoints, plus the remaining three vertices). Removing two edges suffices — remove any pair of edges which do not share a common vertex; the remaining graph can then be coloured with 3 colours.<br>2条边。为了实现 $\chi&#x3D;3$，至少需要避免有任何 4-团。去掉一条边会留下一个 4-团（实际上是两个这样的团——包括其中任何一个但不是两个端点，以及剩余的三个顶点）。去掉两条边足够了——去掉任意一对不共享公共顶点的边；剩下的图可以用 3 种颜色涂色。</li>
+<li>3 ?
+<ul>
+<li>2 edges. To achieve <span class="math inline">\(\chi=3\)</span>, one
+needs (at least) to avoid having any 4-cliques. Removing one edge leaves
+a 4-clique (actually two such cliques — including any one but not both
+of that edge's endpoints, plus the remaining three vertices). Removing
+two edges suffices — remove any pair of edges which do not share a
+common vertex; the remaining graph can then be coloured with 3 colours.
+2条边。为了实现 <span
+class="math inline">\(\chi=3\)</span>，至少需要避免有任何
+4-团。去掉一条边会留下一个
+4-团（实际上是两个这样的团——包括其中任何一个但不是两个端点，以及剩余的三个顶点）。去掉两条边足够了——去掉任意一对不共享公共顶点的边；剩下的图可以用
+3 种颜色涂色。</li>
+</ul></li>
+<li>2 ?
+<ul>
+<li>4 edges. A chromatic number of 2 means that the graph is bipartite,
+with two groups of nodes where each group can be painted with one
+colour. To minimise the number of <em>removed</em> edges, we want to
+have as many edges as possible in the remaining bipartite graph. We
+therefore look at <em>complete bipartite</em> graphs with a total of 5
+vertices. As <em>K</em><sub>1,4</sub> has four edges and
+<em>K</em><sub>2,3</sub> has six edges, the latter is the better choice.
+To reach it we need to remove 4 of the edges in <em>K</em><sub>5</sub>.
+4条边。色数为 2
+意味着该图是二分图，有两组节点，其中每组可以用一种颜色涂色。为了使剩下的边数最少，我们希望剩余的二分图中有尽可能多的边。因此，我们看看总共有
+5 个顶点的完全二分图。由于 <span class="math inline">\(K_{1,4}\)</span>
+有四条边而 <span class="math inline">\(K_{2,3}\)</span>
+有六条边，后者是更好的选择。要达到它，我们需要去掉 <span
+class="math inline">\(K_5\)</span> 中的 4 条边。</li>
+</ul></li>
+<li>1 ?
+<ul>
+<li>10 edges. A chromatic number of 1 means a fully disconnected graph,
+with no edges at all. Therefore all 10 edges of the original graph must
+be removed. 10条边。色数为 1
+意味着完全断开的图，根本没有边。因此，原始图的所有 10
+条边都必须被去掉。</li>
+</ul></li>
 </ul>
-</li>
-<li>2 ?<ul>
-<li>4 edges. A chromatic number of 2 means that the graph is bipartite, with two groups of nodes where each group can be painted with one colour. To minimise the number of <em>removed</em> edges, we want to have as many edges as possible in the remaining bipartite graph. We therefore look at <em>complete bipartite</em> graphs with a total of 5 vertices. As <em>K</em><sub>1,4</sub> has four edges and <em>K</em><sub>2,3</sub> has six edges, the latter is the better choice. To reach it we need to remove 4 of the edges in <em>K</em><sub>5</sub>.<br>4条边。色数为 2 意味着该图是二分图，有两组节点，其中每组可以用一种颜色涂色。为了使剩下的边数最少，我们希望剩余的二分图中有尽可能多的边。因此，我们看看总共有 5 个顶点的完全二分图。由于 $K_{1,4}$ 有四条边而 $K_{2,3}$ 有六条边，后者是更好的选择。要达到它，我们需要去掉 $K_5$ 中的 4 条边。</li>
-</ul>
-</li>
-<li>1 ?<ul>
-<li>10 edges. A chromatic number of 1 means a fully disconnected graph, with no edges at all. Therefore all 10 edges of the original graph must be removed.<br>10条边。色数为 1 意味着完全断开的图，根本没有边。因此，原始图的所有 10 条边都必须被去掉。</li>
-</ul>
-</li>
-</ul>
-<h3 id="7-2"><a href="#7-2" class="headerlink" title="7.2"></a>7.2</h3><p>Give a planar drawing of $K_{2,2,2}$. Can you find one with only straight lines?<br>给出 $K_{2,2,2}$ 的一个平面图形。你能找到一种只用直线的图形吗？</p>
+<h3 id="section-5">7.2</h3>
+<p>Give a planar drawing of <span
+class="math inline">\(K_{2,2,2}\)</span>. Can you find one with only
+straight lines? 给出 <span class="math inline">\(K_{2,2,2}\)</span>
+的一个平面图形。你能找到一种只用直线的图形吗？</p>
 <blockquote>
 <p>[!note] Exercise 7.2</p>
-<p>![[COMP9020 Week 5 Problem Set 2023-03-24 00.54.01.excalidraw|300]]</p>
+<p>[[COMP9020 Week 5 Problem Set 2023-03-24
+00.54.01.excalidraw|300]]</p>
 </blockquote>
 
                 
