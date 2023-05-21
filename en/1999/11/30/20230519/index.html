@@ -69,6 +69,7 @@
 
   
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4069213_604ax105v4u.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap'.css">
 
 
 
@@ -101,7 +102,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/en/">
-      <strong>Ray</strong>
+      <strong><em>Ray</em></strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -130,36 +131,40 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>Archives</span>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-shandian-copy"></i>
+                <span>index</span>
               </a>
-            </li> 
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/en/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                <span>Categories</span>
-              </a>
-            </li> 
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/en/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>Tags</span>
-              </a>
-            </li> 
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/en/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    <span>Archives</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/en/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    <span>Categories</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/en/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    <span>Tags</span>
+                  </a>
+                
+              </div>
+            </li>
           
         
           
@@ -176,8 +181,8 @@
         
         <li class="nav-item" id="change-btn">
           <a class="nav-link" target="_self">
-            <i class="iconfont icon-yuyanzhongwen"></i>
-            <span>中文</span>
+            <i class="iconfont icon-zhongyingwenqiehuan-zhong"></i>
+            <!-- <span>中文</span> -->
           </a>
         </li>
         
@@ -282,6 +287,14 @@
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Article Sample</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    Last updated on November 30, 1999 am
+                  
+                
+              </p>
             
             
               <div class="markdown-body">
@@ -427,9 +440,21 @@
             
               
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                   <span class="hint--top hint--rounded" aria-label="BY - Attribution">
                     <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-sa"></i>
                   </span>
                 </a>
               

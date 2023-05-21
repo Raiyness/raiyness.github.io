@@ -15,11 +15,9 @@ Fluid.events = {
     } else {
       var modifiedUrl = currentUrl.replace("raiyness.github.io", "raiyness.github.io/en");
     }
-    console.log(`currentUrl = ` + currentUrl);
     console.log(`modifiedUrl = ` + modifiedUrl);
     $(document).ready(function() {
       jQuery('#change-btn').on('click', function(e) {
-        console.log(`touch zh redirect: ` + modifiedUrl);
         window.location.href = modifiedUrl;
       });
     });
