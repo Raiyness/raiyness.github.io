@@ -689,7 +689,7 @@ sup > a::before,
   animation-fill-mode: forwards;
   animation-direction: alternate;
 }
-scroll-bottom-button {
+#scroll-bottom-button {
   position: fixed;
   z-index: 99;
   background: var(--board-bg-color);
@@ -704,13 +704,13 @@ scroll-bottom-button {
   align-items: center;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
-scroll-bottom-button i {
+#scroll-bottom-button i {
   font-size: 32px;
   margin: auto;
   color: var(--sec-text-color);
 }
-scroll-bottom-button:hover i,
-scroll-bottom-button:active i {
+#scroll-bottom-button:hover i,
+#scroll-bottom-button:active i {
   animation-name: scroll-bottom;
   animation-duration: 1s;
   animation-delay: 0.1s;
