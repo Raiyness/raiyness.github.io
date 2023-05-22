@@ -161,8 +161,7 @@ Fluid.events = {
       boardTop = board.offset().top;
       boardBottom = board.offset().top + board.outerHeight();
       var scrollPosition = window.pageYOffset + window.innerHeight;
-      var scrollPositionTop = window.pageYOffset;
-      scrollDisplay = (scrollPositionTop > boardTop) && (scrollPosition < boardBottom);
+      scrollDisplay = scrollPosition >= (boardTop + 50) && scrollPosition < boardBottom;
       bottomArrow.css({
         'bottom': posDisplay && scrollDisplay ? '20px' : '-60px'
       });
