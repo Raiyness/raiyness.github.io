@@ -170,6 +170,7 @@
   position: relative;
   display: flex;
   margin-bottom: 0.3em;
+  height: 200px;
 }
 .wl-close {
   position: absolute;
@@ -218,7 +219,7 @@
 .wl-login-nick {
   display: block;
   color: var(--waline-theme-color);
-  font-size: 0.5em;
+  font-size: 0.7em;
   word-break: break-all;
 }
 .wl-panel {
@@ -231,7 +232,6 @@
   background: var(--waline-bgcolor);
   box-shadow: var(--waline-box-shadow);
   border-width: 2px;
-  height: 150px;
 }
 .wl-header {
   display: flex;
@@ -342,7 +342,7 @@
   display: flex;
   flex: 2;
   align-items: center;
-  height: 25px;
+  height: 20px;
 }
 .wl-action {
   display: inline-flex;
@@ -378,7 +378,7 @@
   flex: 3;
   align-items: center;
   justify-content: flex-end;
-  height: 25px;
+  height: 20px;
 }
 .wl-info .wl-text-number {
   color: var(--waline-info-color);
