@@ -689,6 +689,36 @@ sup > a::before,
   animation-fill-mode: forwards;
   animation-direction: alternate;
 }
+#scroll-bottom-button {
+  position: fixed;
+  z-index: 99;
+  background: var(--board-bg-color);
+  transition: background-color 0.2s ease-in-out, bottom 0.3s ease;
+  border-radius: 4px;
+  min-width: 40px;
+  min-height: 40px;
+  bottom: -60px;
+  outline: none;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#scroll-bottom-button i {
+  font-size: 32px;
+  margin: auto;
+  color: var(--sec-text-color);
+}
+#scroll-bottom-button:hover i,
+#scroll-bottom-button:active i {
+  animation-name: scroll-bottom;
+  animation-duration: 1s;
+  animation-delay: 0.1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+}
 #local-search-result .search-list-title {
   border-left: 3px solid #0d47a1;
 }
@@ -1171,6 +1201,62 @@ i.iconfont {
   }
 }
 @keyframes scroll-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-0.35rem);
+    transform: translateY(-0.35rem);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes scroll-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-0.35rem);
+    transform: translateY(-0.35rem);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes scroll-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-0.35rem);
+    transform: translateY(-0.35rem);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-o-keyframes scroll-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-0.35rem);
+    transform: translateY(-0.35rem);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes scroll-bottom {
   0% {
     -webkit-transform: translateY(0);
     transform: translateY(0);

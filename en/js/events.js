@@ -106,7 +106,7 @@ Fluid.events = {
       var right = bodyWidth - boardRight;
       posDisplay = right >= 50;
       topArrow.css({
-        'bottom': posDisplay && scrollDisplay ? '20px' : '-60px',
+        'bottom': posDisplay && scrollDisplay ? '80px' : '-60px',
         'right' : right - 64 + 'px'
       });
     };
@@ -118,7 +118,7 @@ Fluid.events = {
       var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
       scrollDisplay = scrollHeight >= headerHeight;
       topArrow.css({
-        'bottom': posDisplay && scrollDisplay ? '20px' : '-60px'
+        'bottom': posDisplay && scrollDisplay ? '80px' : '-60px'
       });
     });
     // Click
@@ -129,6 +129,52 @@ Fluid.events = {
       });
     });
   },
+  
+  registerScrollBottomArrowEvent: function() {
+    var bottomArrow = jQuery('#scroll-bottom-button');
+    if (bottomArrow.length === 0) {
+      return;
+    }
+    var board = jQuery('#board');
+    if (board.length === 0) {
+      return;
+    }
+    var posDisplay = false;
+    var scrollDisplay = true;
+    // Position
+    var setBottomArrowPos = function() {
+      var boardRight = board[0].getClientRects()[0].right;
+      var bodyWidth = document.body.offsetWidth;
+      var right = bodyWidth - boardRight;
+      posDisplay = right >= 50;
+      bottomArrow.css({
+        'bottom': posDisplay && scrollDisplay ? '20px' : '-60px',
+        'right' : right - 64 + 'px'
+      });
+    };
+    setBottomArrowPos();
+    jQuery(window).resize(setBottomArrowPos);
+    // Display
+    var boardTop, boardBottom;
+    Fluid.utils.listenScroll(function() {
+      // Get current top and bottom position of the board
+      boardTop = board.offset().top;
+      boardBottom = board.offset().top + board.outerHeight();
+      var scrollPosition = window.pageYOffset + window.innerHeight;
+      scrollDisplay = scrollPosition >= (boardTop + 50) && scrollPosition < boardBottom;
+      bottomArrow.css({
+        'bottom': posDisplay && scrollDisplay ? '20px' : '-60px'
+      });
+    });
+    // Click
+    bottomArrow.on('click', function() {
+      jQuery('body,html').animate({
+        scrollTop: jQuery(document).height(),
+        easing   : 'swing'
+      });
+    });
+  },
+
 
   registerImageLoadedEvent: function() {
     if (!('NProgress' in window)) { return; }
