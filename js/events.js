@@ -15,7 +15,6 @@ Fluid.events = {
     } else {
       var modifiedUrl = currentUrl.replace("raiyness.github.io", "raiyness.github.io/en");
     }
-    console.log(`modifiedUrl = ` + modifiedUrl);
     $(document).ready(function() {
       jQuery('#change-btn').on('click', function(e) {
         window.location.href = modifiedUrl;
