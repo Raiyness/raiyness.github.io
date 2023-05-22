@@ -155,10 +155,12 @@ Fluid.events = {
     setBottomArrowPos();
     jQuery(window).resize(setBottomArrowPos);
     // Display
-    var headerHeight = board.offset().top;
+    var headerHeight = board.offset().bottom;
     Fluid.utils.listenScroll(function() {
-      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.scrollTop - window.innerHeight;
-      scrollDisplay = scrollHeight <= headerHeight;
+      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.scrollBottom - window.innerHeight;
+      if (scrollPosition + windowHeight < documentHeight){
+        scrollDisplay = true;
+      }
       bottomArrow.css({
         'bottom': posDisplay && scrollDisplay ? '20px' : '-60px'
       });
@@ -166,7 +168,7 @@ Fluid.events = {
     // Click
     bottomArrow.on('click', function() {
       jQuery('body,html').animate({
-        scrollTop: jQuery(document).height(),
+        scrollBottom: jQuery(document).height(),
         easing   : 'swing'
       });
     });
