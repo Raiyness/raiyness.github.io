@@ -3,8 +3,8 @@
   --waline-white: #fff;
   --waline-light-grey: #999;
   --waline-dark-grey: #666;
-  --waline-theme-color: #4d6391;
-  --waline-active-color: #4d6391;
+  --waline-theme-color: #1e4e6e;
+  --waline-active-color: #1e4e6e;
   --waline-color: #444;
   --waline-bgcolor: #fff;
   --waline-bgcolor-light: #f8f8f8;
@@ -16,7 +16,7 @@
   --waline-bq-color: #f0f0f0;
   --waline-avatar-size: 3.25rem;
   --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
-  --waline-badge-color: #3498db;
+  --waline-badge-color: #085a91;
   --waline-badge-font-size: 0.75em;
   --waline-info-bgcolor: #f8f8f8;
   --waline-info-color: #999;
@@ -169,7 +169,7 @@
 .wl-comment {
   position: relative;
   display: flex;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.3em;
 }
 .wl-close {
   position: absolute;
@@ -218,7 +218,7 @@
 .wl-login-nick {
   display: block;
   color: var(--waline-theme-color);
-  font-size: 0.6em;
+  font-size: 0.5em;
   word-break: break-all;
 }
 .wl-panel {
@@ -231,7 +231,7 @@
   background: var(--waline-bgcolor);
   box-shadow: var(--waline-box-shadow);
   border-width: 2px;
-  height: 300px;
+  height: 150px;
 }
 .wl-header {
   display: flex;
@@ -342,6 +342,7 @@
   display: flex;
   flex: 2;
   align-items: center;
+  height: 25px;
 }
 .wl-action {
   display: inline-flex;
@@ -377,6 +378,7 @@
   flex: 3;
   align-items: center;
   justify-content: flex-end;
+  height: 25px;
 }
 .wl-info .wl-text-number {
   color: var(--waline-info-color);
@@ -559,7 +561,7 @@
 .wl-cards .wl-item {
   position: relative;
   display: flex;
-  padding: 0.5em;
+  padding: 0.3em;
 }
 .wl-cards .wl-item:last-child .wl-card {
   border-bottom: none;
@@ -727,7 +729,7 @@
 }
 .wl-card .wl-admin-actions {
   margin: 8px 0;
-  font-size: 12px;
+  font-size: 10px;
   text-align: right;
 }
 .wl-card .wl-comment-status {
@@ -805,7 +807,7 @@
   margin: 1em 0;
 }
 .wl-power {
-  padding: 0.5em 0;
+  padding: 0.3em 0;
   color: var(--waline-light-grey);
   font-size: var(--waline-info-font-size);
   text-align: right;
