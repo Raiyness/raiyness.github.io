@@ -147,6 +147,7 @@
   border-color: var(--waline-theme-color);
   background: var(--waline-theme-color);
   color: var(--waline-white);
+  height: 20px;
 }
 .wl-btn.primary:active,
 .wl-btn.primary:hover {
@@ -170,7 +171,6 @@
   position: relative;
   display: flex;
   margin-bottom: 0.3em;
-  height: 200px;
 }
 .wl-close {
   position: absolute;
@@ -306,7 +306,7 @@
   position: relative;
   width: calc(100% - 1em);
   min-height: 8.75em;
-  margin: 0.75em 0.5em;
+  margin: 0.75em 0.5em 0.5em;
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0);
   font-size: 0.875em;
