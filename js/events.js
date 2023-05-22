@@ -155,10 +155,10 @@ Fluid.events = {
     setBottomArrowPos();
     jQuery(window).resize(setBottomArrowPos);
     // Display
-    var boardBottom = board[0].getBoundingClientRect().bottom;
+    var boardBottom = board[0].getBoundingClientRect().bottom + window.pageYOffset;
     Fluid.utils.listenScroll(function() {
-      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.scrollTop - window.innerHeight;
-      scrollDisplay = scrollHeight <= boardBottom;
+      var scrollHeight = window.pageYOffset;
+      scrollDisplay = scrollHeight < boardBottom;
       bottomArrow.css({
         'bottom': posDisplay && scrollDisplay ? '20px' : '-60px'
       });
