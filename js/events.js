@@ -106,7 +106,7 @@ Fluid.events = {
       var right = bodyWidth - boardRight;
       posDisplay = right >= 50;
       topArrow.css({
-        'bottom': posDisplay && scrollDisplay ? '60px' : '-60px',
+        'bottom': posDisplay && scrollDisplay ? '80px' : '-60px',
         'right' : right - 64 + 'px'
       });
     };
@@ -118,7 +118,7 @@ Fluid.events = {
       var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
       scrollDisplay = scrollHeight >= headerHeight;
       topArrow.css({
-        'bottom': posDisplay && scrollDisplay ? '60px' : '-60px'
+        'bottom': posDisplay && scrollDisplay ? '80px' : '-60px'
       });
     });
     // Click
@@ -157,12 +157,10 @@ Fluid.events = {
     // Display
     var headerHeight = board.offset().bottom;
     Fluid.utils.listenScroll(function() {
-      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.scrollBottom - window.innerHeight;
-      if (document.documentElement.scrollTop + window.innerHeight < document.documentElement.scrollHeight){
-        scrollDisplay = true;
-      }
+      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.scrollTop - window.innerHeight;
+      scrollDisplay = scrollHeight <= headerHeight;
       bottomArrow.css({
-        'bottom': posDisplay && scrollDisplay ? '20px' : '-60px'
+        'top': posDisplay && scrollDisplay ? '20px' : '-60px'
       });
     });
     // Click
