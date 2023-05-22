@@ -158,7 +158,7 @@ Fluid.events = {
     var headerHeight = board.offset().bottom;
     Fluid.utils.listenScroll(function() {
       var scrollHeight = document.documentElement.scrollHeight - document.documentElement.scrollBottom - window.innerHeight;
-      if (scrollPosition + windowHeight < documentHeight){
+      if (document.documentElement.scrollTop + window.innerHeight < document.documentElement.scrollHeight){
         scrollDisplay = true;
       }
       bottomArrow.css({
