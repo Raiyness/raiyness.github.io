@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Water</title>
+    <link href="/en/2024/06/11/New/"/>
+    <url>/en/2024/06/11/New/</url>
+    
+    <content type="html"><![CDATA[<p>这部分是正文的摘要。</p><span id="more"></span><p>–</p><div class="note note-secondary">            <p><strong>Metadata</strong><br>domain:: [[LeetCode]]<br>difficulty:: medium<br>type:: Array, Two Pointers, Greedy</p>          </div><h2 id="❓-Question"><a href="#❓-Question" class="headerlink" title="❓ Question"></a>❓ Question</h2><blockquote><p>You are given an integer array <code>height</code> of length <code>n</code>. There are n vertical lines drawn such that the two endpoints of the <code>ith</code> line are <code>(i, 0)</code> and <code>(i, height[i])</code>.</p><p>Find two lines that together with the x-axis form a container, such that the container contains the most water.</p><p>Return the maximum amount of water a container can store.</p><p><strong>Notice</strong> that you may not slant the container.</p></blockquote><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><div class="note note-secondary">            <p><strong>Example 1</strong></p><p>![[container_with_most_water_example.png]]<br><strong>Input:</strong> <code>height = [1,8,6,2,5,4,8,3,7]</code><br><strong>Output:</strong> <code>49</code><br><strong>Explanation:</strong> The above vertical lines are represented by array <code>[1,8,6,2,5,4,8,3,7]</code>. In this case, the max area of water (blue section) the container can contain is 49.</p>          </div><div class="note note-secondary">            <p><strong>Example 2</strong><br><strong>Input:</strong> <code>height = [1,1]</code><br><strong>Output:</strong> <code>1</code></p>          </div><h3 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h3><ul><li><code>n == height.length</code></li><li><code>2 &lt;= n &lt;= 105</code></li><li><code>0 &lt;= height[i] &lt;= 104</code></li></ul><h2 id="✅-My-Answer"><a href="#✅-My-Answer" class="headerlink" title="✅ My Answer"></a>✅ My Answer</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxArea</span><span class="hljs-params">(<span class="hljs-type">int</span>[] height)</span> &#123;  <br>    <span class="hljs-type">int</span> <span class="hljs-variable">max</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;  <br>    <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;  <br>    <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> height.length - <span class="hljs-number">1</span>;  <br>    <span class="hljs-keyword">while</span> (left &lt; right) &#123;  <br>        <span class="hljs-type">int</span> <span class="hljs-variable">current</span> <span class="hljs-operator">=</span> Math.min(height[left], height[right]) * (right - left);  <br>        max = Math.max(max, current);  <br>        <span class="hljs-keyword">if</span> (height[left] &lt; height[right]) &#123;  <br>            left++;  <br>        &#125; <span class="hljs-keyword">else</span> &#123;  <br>            right--;  <br>        &#125;  <br>    &#125;  <br>    <span class="hljs-keyword">return</span> max;  <br>&#125;<br></code></pre></td></tr></table></figure><h2 id="🔍-Approach"><a href="#🔍-Approach" class="headerlink" title="🔍 Approach"></a>🔍 Approach</h2><h2 id="🏆-Conclusion"><a href="#🏆-Conclusion" class="headerlink" title="🏆 Conclusion"></a>🏆 Conclusion</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>🟡Record🖊️</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>testtest</title>
     <link href="/en/2023/05/23/testtest/"/>
     <url>/en/2023/05/23/testtest/</url>

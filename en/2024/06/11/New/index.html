@@ -18,19 +18,24 @@
   <meta name="author" content="Ray">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="testtest">
-<meta property="og:url" content="http://raiyness.github.io/en/2023/05/23/testtest/index.html">
+    <meta name="description" content="这部分是正文的摘要。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Water">
+<meta property="og:url" content="http://raiyness.github.io/en/2024/06/11/New/index.html">
 <meta property="og:site_name" content="Ray">
+<meta property="og:description" content="这部分是正文的摘要。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-05-23T09:28:27.000Z">
-<meta property="article:modified_time" content="2023-05-23T09:28:27.147Z">
+<meta property="og:image" content="http://raiyness.github.io/en/img/homepage-v1.png">
+<meta property="article:published_time" content="2024-06-11T00:12:00.000Z">
+<meta property="article:modified_time" content="2024-06-11T00:52:00.000Z">
 <meta property="article:author" content="Ray">
+<meta property="article:tag" content="🟡Record🖊️">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://raiyness.github.io/en/img/homepage-v1.png">
   
   
   
-  <title>testtest - Ray</title>
+  <title>Water - Ray</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -235,13 +240,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/en/img/homepage.png') no-repeat center center; background-size: cover;">
+     style="background: url('/en/img/homepage-v1.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="testtest"></span>
+            <span id="subtitle" data-typed-text="Water"></span>
           
         </div>
 
@@ -252,8 +257,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-23 19:28" pubdate>
-          May 23, 2023 pm
+        <time datetime="2024-06-11 10:12" pubdate>
+          June 11, 2024 am
         </time>
       </span>
     
@@ -264,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          1.1k words
         
       </span>
     
@@ -275,7 +280,7 @@
         
         
         
-          1 mins
+          4 mins
         
       </span>
     
@@ -313,12 +318,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">testtest</h1>
+            <h1 style="display: none">Water</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on May 23, 2023 pm
+                    Last updated on June 11, 2024 am
                   
                 
               </p>
@@ -326,7 +331,39 @@
             
               <div class="markdown-body">
                 
-                
+                <p>这部分是正文的摘要。</p>
+<span id="more"></span>
+
+<p>–</p>
+<div class="note note-secondary">
+            <p><strong>Metadata</strong><br>domain:: [[LeetCode]]<br>difficulty:: medium<br>type:: Array, Two Pointers, Greedy</p>
+          </div>
+
+
+<h2 id="❓-Question"><a href="#❓-Question" class="headerlink" title="❓ Question"></a>❓ Question</h2><blockquote>
+<p>You are given an integer array <code>height</code> of length <code>n</code>. There are n vertical lines drawn such that the two endpoints of the <code>ith</code> line are <code>(i, 0)</code> and <code>(i, height[i])</code>.</p>
+<p>Find two lines that together with the x-axis form a container, such that the container contains the most water.</p>
+<p>Return the maximum amount of water a container can store.</p>
+<p><strong>Notice</strong> that you may not slant the container.</p>
+</blockquote>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><div class="note note-secondary">
+            <p><strong>Example 1</strong></p><p>![[container_with_most_water_example.png]]<br><strong>Input:</strong> <code>height = [1,8,6,2,5,4,8,3,7]</code><br><strong>Output:</strong> <code>49</code><br><strong>Explanation:</strong> The above vertical lines are represented by array <code>[1,8,6,2,5,4,8,3,7]</code>. In this case, the max area of water (blue section) the container can contain is 49.</p>
+          </div>
+
+
+<div class="note note-secondary">
+            <p><strong>Example 2</strong><br><strong>Input:</strong> <code>height = [1,1]</code><br><strong>Output:</strong> <code>1</code></p>
+          </div>
+
+
+<h3 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h3><ul>
+<li><code>n == height.length</code></li>
+<li><code>2 &lt;= n &lt;= 105</code></li>
+<li><code>0 &lt;= height[i] &lt;= 104</code></li>
+</ul>
+<h2 id="✅-My-Answer"><a href="#✅-My-Answer" class="headerlink" title="✅ My Answer"></a>✅ My Answer</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxArea</span><span class="hljs-params">(<span class="hljs-type">int</span>[] height)</span> &#123;  <br>    <span class="hljs-type">int</span> <span class="hljs-variable">max</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;  <br>    <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;  <br>    <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> height.length - <span class="hljs-number">1</span>;  <br>    <span class="hljs-keyword">while</span> (left &lt; right) &#123;  <br>        <span class="hljs-type">int</span> <span class="hljs-variable">current</span> <span class="hljs-operator">=</span> Math.min(height[left], height[right]) * (right - left);  <br>        max = Math.max(max, current);  <br>        <span class="hljs-keyword">if</span> (height[left] &lt; height[right]) &#123;  <br>            left++;  <br>        &#125; <span class="hljs-keyword">else</span> &#123;  <br>            right--;  <br>        &#125;  <br>    &#125;  <br>    <span class="hljs-keyword">return</span> max;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="🔍-Approach"><a href="#🔍-Approach" class="headerlink" title="🔍 Approach"></a>🔍 Approach</h2><h2 id="🏆-Conclusion"><a href="#🏆-Conclusion" class="headerlink" title="🏆 Conclusion"></a>🏆 Conclusion</h2>
                 
               </div>
             
@@ -334,6 +371,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/en/categories/Hexo/" class="category-chain-item">Hexo</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/en/tags/%F0%9F%9F%A1Record%F0%9F%96%8A%EF%B8%8F/">#🟡Record🖊️</a>
+      
+    </div>
   
 </div>
 
@@ -343,8 +408,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div><strong>testtest</strong></div>
-      <div>http://raiyness.github.io/en/2023/05/23/testtest/</div>
+      <div><strong>Water</strong></div>
+      <div>http://raiyness.github.io/en/2024/06/11/New/</div>
     </div>
     <div class="license-meta">
       
@@ -356,7 +421,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>May 23, 2023</div>
+          <div>June 11, 2024</div>
         </div>
       
       
@@ -400,18 +465,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/en/2024/06/11/New/" title="Water">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Water</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/en/1999/11/30/20230519/" title="Article Sample">
-                        <span class="hidden-mobile">Article Sample</span>
+                      <a href="/en/2023/05/23/testtest/" title="testtest">
+                        <span class="hidden-mobile">testtest</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -434,7 +493,7 @@
         var options = Object.assign(
           {"clientID":"8acfa6f6ce5c98bed13a","clientSecret":"95a9967dda905887d67ba4a1bef1ee91dc6dce8f","repo":"Raiyness.github.io","owner":"Raiyness","admin":["Raiyness"],"language":"en","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: 'abf1c4a184308070c8832bf9909f4a11'
+            id: 'a8ffee19afe7e76e6453b277af2c2648'
           }
         )
         var gitalk = new Gitalk(options);
@@ -495,6 +554,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -708,6 +773,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/en/js/leancloud.js" ></script>
 
