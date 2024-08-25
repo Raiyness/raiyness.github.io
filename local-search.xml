@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title></title>
+    <link href="/2024/08/25/Burrows%E2%80%93Wheeler%20Transform/"/>
+    <url>/2024/08/25/Burrows%E2%80%93Wheeler%20Transform/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>[!info] Metadata</p><p>domain::<br>relevant::</p></blockquote><h2 id="What-is-Burrows-Wheeler-Transform-BWT"><a href="#What-is-Burrows-Wheeler-Transform-BWT" class="headerlink" title="What is Burrows-Wheeler Transform (BWT)"></a>What is Burrows-Wheeler Transform (BWT)</h2><p>The Burrows–Wheeler transform (BWT, also called block-sorting compression) rearranges a character string into runs of similar characters. This is useful for compression, since it tends to be easy to compress a string that has runs of repeated characters by techniques such as move-to-front transform and run-length encoding.<br>Burrows-Wheeler 变换（BWT，也称为块排序压缩）将字符串重新排列成相似字符的连续序列。这对于压缩非常有用，因为通过移至前端变换和游程编码等技术，往往可以轻松地压缩具有重复字符连续序列的字符串。</p><p>More importantly, the transformation is <em>reversible</em>, without needing to store any additional data except the position of the first original character. The BWT is thus a “free” method of improving the efficiency of text compression algorithms, costing only some extra computation.<br>更重要的是，这种转换是可逆的，无需存储任何额外的数据，除了第一个原始字符的位置。因此，BWT 是一种“免费”的方法来提高文本压缩算法的效率，只需要一些额外计算成本。</p><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>When a character string is transformed by the BWT, the transformation permutes the order of the characters. If the original string had several substrings that occurred often, then the transformed string will have several places where a single character is repeated multiple times in a row.<br>当一个字符串通过 BWT 进行转换时，这个转换会改变字符的顺序。如果原始字符串中有多个经常出现的子字符串，那么转换后的字符串中会有多处连续重复出现同一个字符的情况。</p><p>The transform is done by sorting all the <strong>circular shifts</strong> of a text in <strong>lexicographic order</strong> and by extracting the last column and the index of the original string in the set of sorted permutations of <code>S</code>.<br>通过按<strong>字典顺序</strong>对文本的所有<strong>循环位移</strong>进行排序，并提取最后一列和原始字符串在已排序排列集合中的索引来完成变换。</p><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>![[BWT.png]]</p><h2 id="BWT-Applications"><a href="#BWT-Applications" class="headerlink" title="BWT Applications"></a>BWT Applications</h2><h3 id="Data-Compression"><a href="#Data-Compression" class="headerlink" title="Data Compression"></a>Data Compression</h3><p>BWT serves as the foundation for various compression algorithms, including the popular Burrows-Wheeler Compression (BWC) and the bzip2 utility. By exploiting redundancy and patterns in the data, BWT achieves significant compression ratios, making it indispensable in scenarios where storage or bandwidth is limited.</p><h3 id="DNA-Sequencing"><a href="#DNA-Sequencing" class="headerlink" title="DNA Sequencing"></a>DNA Sequencing</h3><p>In bioinformatics, BWT plays a pivotal role in DNA sequencing algorithms. It helps in aligning sequences, identifying similarities, and detecting mutations with high efficiency and accuracy.</p><h3 id="Pattern-Matching"><a href="#Pattern-Matching" class="headerlink" title="Pattern Matching"></a>Pattern Matching</h3><p>BWT, coupled with the FM-index, enables efficient pattern matching in large datasets. Applications range from text searching in documents to genome analysis in bioinformatics.</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>📝️/🔋</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>文章样例</title>
     <link href="/2024/08/20/Example/"/>
     <url>/2024/08/20/Example/</url>
