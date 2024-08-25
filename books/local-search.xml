@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>testat</title>
+    <link href="/books/2023/05/23/testat/"/>
+    <url>/books/2023/05/23/testat/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>🟡Record🖊️</tag>
+      
+      <tag>Tag1</tag>
+      
+      <tag>Tag2</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>tssssssssss</title>
+    <link href="/books/2023/05/23/testte/"/>
+    <url>/books/2023/05/23/testte/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>🟡Record🖊️</tag>
+      
+      <tag>Tag1</tag>
+      
+      <tag>Tag3</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>testtttt</title>
+    <link href="/books/2023/05/23/testtttt/"/>
+    <url>/books/2023/05/23/testtttt/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Tag1</tag>
+      
+      <tag>Tag2</tag>
+      
+      <tag>Record🖊️</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>stststsat</title>
+    <link href="/books/2023/05/23/ysssssss/"/>
+    <url>/books/2023/05/23/ysssssss/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>🟡Record🖊️</tag>
+      
+      <tag>Tag</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>文章样例</title>
+    <link href="/books/1999/11/30/20230519/"/>
+    <url>/books/1999/11/30/20230519/</url>
+    
+    <content type="html"><![CDATA[<p>这部分是正文的摘要。</p><!-- more --><h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><h3 id="标题三"><a href="#标题三" class="headerlink" title="标题三"></a>标题三</h3><h4 id="标题四"><a href="#标题四" class="headerlink" title="标题四"></a>标题四</h4><h5 id="标题五"><a href="#标题五" class="headerlink" title="标题五"></a>标题五</h5><h6 id="标题六"><a href="#标题六" class="headerlink" title="标题六"></a>标题六</h6><p>这里是正文</p><h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><hr><h3 id="标签页"><a href="#标签页" class="headerlink" title="标签页"></a>标签页</h3><h4 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h4><div class="note note-success">            <p>这里是便签<code>success</code></p>          </div><div class="note note-secondary">            <p>这里是便签<code>secondary</code></p>          </div><div class="note note-primary">            <p>这里是便签<code>primary</code></p>          </div><div class="note note-danger">            <p>这里是便签<code>danger</code></p>          </div><div class="note note-warning">            <p>这里是便签<code>warning</code></p>          </div><div class="note note-info">            <p>这里是便签<code>info</code></p>          </div><div class="note note-light">            <p>这里是便签<code>light</code></p>          </div><h4 id="行内标签"><a href="#行内标签" class="headerlink" title="行内标签"></a>行内标签</h4><p>这是一个行内标签<span class="label label-primary">text</span></p><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello world!&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="LaTeX-数学公式"><a href="#LaTeX-数学公式" class="headerlink" title="LaTeX 数学公式"></a>LaTeX 数学公式</h3><h4 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h4><p>这是一个行内公式 $a&#x3D;b+c$</p><h4 id="行间公式"><a href="#行间公式" class="headerlink" title="行间公式"></a>行间公式</h4><p>$$<br>E&#x3D;mc^2<br>$$</p><h3 id="勾选框"><a href="#勾选框" class="headerlink" title="勾选框"></a>勾选框</h3>            <input type="checkbox" disabled checked="checked">这是勾选框          <div>            <input type="checkbox" disabled >普通示例          </div><div>            <input type="checkbox" disabled checked="checked">默认选中          </div>            <input type="checkbox" disabled >内联示例           后面文字不换行<input type="checkbox" disabled > 也可以只传入一个参数，文字写在后边（这样不支持外联）<h3 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h3><a class="btn" href="url"  title="title" target="_blank">text</a>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hexo</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
