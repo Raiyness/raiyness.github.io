@@ -19,7 +19,7 @@
   <meta name="keywords" content="">
   
     <meta property="og:type" content="website">
-<meta property="og:title" content="Ray">
+<meta property="og:title" content="抱歉，该页面不存在">
 <meta property="og:url" content="http://raiyness.github.io/404.html">
 <meta property="og:site_name" content="Ray">
 <meta property="og:locale" content="zh_CN">
@@ -28,7 +28,7 @@
   
   
   
-  <title>Ray</title>
+  <title>抱歉，该页面不存在 - Ray</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -233,7 +233,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="抱歉，该页面不存在"></span>
           
         </div>
 
@@ -253,11 +253,10 @@
     
       
 
-<link rel="stylesheet" href="/css/404.css">
-
 <div class="row mx-auto choose-page">
-  <button class="custom-404-button" id="back-last-page">></button>
-  <button class="custom-404-button" id="back-home"></button>
+
+  <button id="back-last-page">回到上一页</button>
+  <button id="back-home">回到首页</button>
 </div>
 
 <script>
@@ -265,55 +264,18 @@
   var backButton = document.getElementById('back-last-page');
   var homeButton = document.getElementById('back-home');
 
-  document.addEventListener('DOMContentLoaded', function () {
-    if (window.location.pathname.includes('/en/')) {
-            backButton.innerHTML = '<i class="fa fa-chevron-circle-left"></i> Previous page';
-            homeButton.innerHTML = '<i class="fa fa-home"></i> Home page';
-            homeButton.addEventListener('click', function() {
-                window.location.href = 'https://Raiyness.github.io/en/';
-            });
-        } else {
-            backButton.innerHTML = '<i class="fa fa-chevron-circle-left"></i> 回到上一页';
-            homeButton.innerHTML = '<i class="fa fa-home"></i> 回到首页';
-            homeButton.addEventListener('click', function() {
-                window.location.href = 'https://Raiyness.github.io/';
-            });
-        }      
-    });
-
   // 当点击"回到上一页"按钮时，浏览器后退到上一页
   backButton.addEventListener('click', function() {
     window.history.back();
   });
+
+  // 当点击"回到首页"按钮时，跳转到首页
+  // 这里需要你替换为你的首页URL
+  homeButton.addEventListener('click', function() {
+      window.location.href = 'https://Raiyness.github.io/';
+  });
 </script>
 
-<style>
-
-.choose-page {
-  margin-top: 27px;
-  height: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 100px
-}
-
-.custom-404-button {
-  width: 200px;
-  font-weight: bold;
-  padding: 0.25rem 1rem;
-  color: #fefefe;
-  background-color: #74959c;
-  border-radius: 0.4rem;
-  border: 2px solid;
-  border-color: black;
-}
-
-.custom-404-button:hover {
-  background-color: #192b39;
-  box-shadow: 0 0 0 3px rgba(29, 51, 87, 0.5);
-}
-</style>
     
 
     

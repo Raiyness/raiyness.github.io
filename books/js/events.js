@@ -68,36 +68,48 @@ Fluid.events = {
 
   searchBooks: function() {
     $('#search-input').on('input', function() {
-      var searchVal = $(this).val().toLowerCase(); //获取搜索框中的字符
-      var allHidden = true; //标记是否所有卡片都被隐藏
-
+      var searchVal = $(this).val().toLowerCase().trim(); // 获取并处理搜索框中的字符
+      var allHidden = true; // 标记是否所有卡片都被隐藏
+  
       $('.index-card').each(function() {
         var match = false;
         if (searchVal.startsWith('#')) {
           // 如果搜索内容以 '#' 开头，从标签中搜索
+          searchVal = searchVal.substring(1); // 移除开头的 '#'
           $(this).find('.post-meta a').each(function() {
-            var tagName = $(this).text().toLowerCase(); //获取标签名称
-            if (tagName === searchVal) {
+            var tagName = $(this).text().toLowerCase(); // 获取标签名称
+            if (tagName.includes(searchVal) || searchVal.includes(tagName)) {
               match = true;
               return false; // 中断 each 循环
             }
           });
         } else {
           // 如果搜索内容不以 '#' 开头，从 index-header 中搜索
-          var headerText = $(this).find('.index-header a').text().toLowerCase(); //获取卡片的 header 链接的文字
+          var headerText = $(this).find('.index-header a').text().toLowerCase(); // 获取卡片的 header 链接的文字
           match = headerText.includes(searchVal);
+  
+          // 如果标题不匹配，也搜索标签
+          if (!match) {
+            $(this).find('.post-meta a').each(function() {
+              var tagName = $(this).text().toLowerCase(); // 获取标签名称
+              if (tagName.includes(searchVal) || searchVal.includes(tagName)) {
+                match = true;
+                return false; // 中断 each 循环
+              }
+            });
+          }
         }
   
         // 如果匹配成功，显示该卡片，否则隐藏
         if (match) {
           $(this).show();
-          allHidden = false; //至少有一个卡片被显示
+          allHidden = false; // 至少有一个卡片被显示
         } else {
           $(this).hide();
         }
       });
-
-      // 如果所有卡片都被隐藏，显示“没有相应结果”，否则隐藏
+  
+      // 如果所有卡片都被隐藏，显示"没有相应结果"，否则隐藏
       if (allHidden) {
         $('#no-results').show();
       } else {
