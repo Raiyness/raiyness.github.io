@@ -11,16 +11,16 @@ Fluid.events = {
   searchAllTag: function() {
     document.querySelectorAll('.books-tags button.book-tag-all').forEach(function(tag) {
       tag.addEventListener('click', function(event) {
-        var allHidden = true; //����Ƿ����п�Ƭ��������
-        var tagName = this.getAttribute('data-name'); // ��ȡ������ı�ǩ������
-        var searchVal = document.querySelector('#search-input'); // ��ȡ������Ԫ��
-        searchVal.value = ''; // ���������ֵ����Ϊ '#' + ��ǩ������
+        var allHidden = true; //标记是否所有卡片都被隐藏
+        var tagName = this.getAttribute('data-name'); // 获取被点击的标签的名称
+        var searchVal = document.querySelector('#search-input'); // 获取搜索框元素
+        searchVal.value = ''; // 将搜索框的值设置为 '#' + 标签的名称
         var searchTagsName = '';
         $('.index-card').each(function() {
           $(this).show();
           allHidden = false; 
         })
-        // ������п�Ƭ�������أ���ʾ��û����Ӧ���������������
+        // 如果所有卡片都被隐藏，显示“没有相应结果”，否则隐藏
         if (allHidden) {
           $('#no-results').show();
         } else {
@@ -33,30 +33,30 @@ Fluid.events = {
   searchByTag: function() {
     document.querySelectorAll('.books-tags button.book-tag').forEach(function(tag) {
       tag.addEventListener('click', function(event) {
-        var allHidden = true; //����Ƿ����п�Ƭ��������
-        var tagName = this.getAttribute('data-name'); // ��ȡ������ı�ǩ������
-        var searchVal = document.querySelector('#search-input'); // ��ȡ������Ԫ��
-        searchVal.value = '#' + tagName; // ���������ֵ����Ϊ '#' + ��ǩ������
+        var allHidden = true; //标记是否所有卡片都被隐藏
+        var tagName = this.getAttribute('data-name'); // 获取被点击的标签的名称
+        var searchVal = document.querySelector('#search-input'); // 获取搜索框元素
+        searchVal.value = '#' + tagName; // 将搜索框的值设置为 '#' + 标签的名称
         var searchTagsName = ('#'+ tagName).toLowerCase();
         $('.index-card').each(function() {
           var match = false;
           $(this).find('.post-meta a').each(function() {
-            var tagName = $(this).text().toLowerCase(); //��ȡ��ǩ����
+            var tagName = $(this).text().toLowerCase(); //获取标签名称
             if (tagName === searchTagsName) {
               match = true;
-              return false; // �ж� each ѭ��
+              return false; // 中断 each 循环
             }
           });
           
-          // ���ƥ��ɹ�����ʾ�ÿ�Ƭ����������
+          // 如果匹配成功，显示该卡片，否则隐藏
           if (match) {
             $(this).show();
-            allHidden = false; //������һ����Ƭ����ʾ
+            allHidden = false; //至少有一个卡片被显示
           } else {
             $(this).hide();
           }
         });
-        // ������п�Ƭ�������أ���ʾ��û����Ӧ���������������
+        // 如果所有卡片都被隐藏，显示“没有相应结果”，否则隐藏
         if (allHidden) {
           $('#no-results').show();
         } else {
@@ -68,36 +68,48 @@ Fluid.events = {
 
   searchBooks: function() {
     $('#search-input').on('input', function() {
-      var searchVal = $(this).val().toLowerCase(); //��ȡ�������е��ַ�
-      var allHidden = true; //����Ƿ����п�Ƭ��������
-
+      var searchVal = $(this).val().toLowerCase().trim(); // 获取并处理搜索框中的字符
+      var allHidden = true; // 标记是否所有卡片都被隐藏
+  
       $('.index-card').each(function() {
         var match = false;
         if (searchVal.startsWith('#')) {
-          // ������������� '#' ��ͷ���ӱ�ǩ������
+          // 如果搜索内容以 '#' 开头，从标签中搜索
+          searchVal = searchVal.substring(1); // 移除开头的 '#'
           $(this).find('.post-meta a').each(function() {
-            var tagName = $(this).text().toLowerCase(); //��ȡ��ǩ����
-            if (tagName === searchVal) {
+            var tagName = $(this).text().toLowerCase(); // 获取标签名称
+            if (tagName.includes(searchVal) || searchVal.includes(tagName)) {
               match = true;
-              return false; // �ж� each ѭ��
+              return false; // 中断 each 循环
             }
           });
         } else {
-          // ����������ݲ��� '#' ��ͷ���� index-header ������
-          var headerText = $(this).find('.index-header a').text().toLowerCase(); //��ȡ��Ƭ�� header ���ӵ�����
+          // 如果搜索内容不以 '#' 开头，从 index-header 中搜索
+          var headerText = $(this).find('.index-header a').text().toLowerCase(); // 获取卡片的 header 链接的文字
           match = headerText.includes(searchVal);
+  
+          // 如果标题不匹配，也搜索标签
+          if (!match) {
+            $(this).find('.post-meta a').each(function() {
+              var tagName = $(this).text().toLowerCase(); // 获取标签名称
+              if (tagName.includes(searchVal) || searchVal.includes(tagName)) {
+                match = true;
+                return false; // 中断 each 循环
+              }
+            });
+          }
         }
   
-        // ���ƥ��ɹ�����ʾ�ÿ�Ƭ����������
+        // 如果匹配成功，显示该卡片，否则隐藏
         if (match) {
           $(this).show();
-          allHidden = false; //������һ����Ƭ����ʾ
+          allHidden = false; // 至少有一个卡片被显示
         } else {
           $(this).hide();
         }
       });
-
-      // ������п�Ƭ�������أ���ʾ��û����Ӧ���������������
+  
+      // 如果所有卡片都被隐藏，显示"没有相应结果"，否则隐藏
       if (allHidden) {
         $('#no-results').show();
       } else {
