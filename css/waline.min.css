@@ -777,7 +777,7 @@
   text-align: center;
 }
 .wl-content .katex-display {
-  overflow: auto hidden;count
+  overflow: auto hidden;
   -webkit-overflow-scrolling: touch;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
