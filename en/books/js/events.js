@@ -40,7 +40,7 @@ Fluid.events = {
         var searchTagsName = ('#'+ tagName).toLowerCase();
         $('.index-card').each(function() {
           var match = false;
-          $(this).find('.post-meta a').each(function() {
+          $(this).find('.post-meta-book a').each(function() {
             var tagName = $(this).text().toLowerCase(); //获取标签名称
             if (tagName === searchTagsName) {
               match = true;
@@ -76,7 +76,7 @@ Fluid.events = {
         if (searchVal.startsWith('#')) {
           // 如果搜索内容以 '#' 开头，从标签中搜索
           searchVal = searchVal.substring(1); // 移除开头的 '#'
-          $(this).find('.post-meta a').each(function() {
+          $(this).find('.post-meta-book a').each(function() {
             var tagName = $(this).text().toLowerCase(); // 获取标签名称
             if (tagName.includes(searchVal) || searchVal.includes(tagName)) {
               match = true;
@@ -90,7 +90,7 @@ Fluid.events = {
   
           // 如果标题不匹配，也搜索标签
           if (!match) {
-            $(this).find('.post-meta a').each(function() {
+            $(this).find('.post-meta-book a').each(function() {
               var tagName = $(this).text().toLowerCase(); // 获取标签名称
               if (tagName.includes(searchVal) || searchVal.includes(tagName)) {
                 match = true;
