@@ -256,7 +256,7 @@
 <link rel="stylesheet" href="/css/404.css">
 
 <div class="row mx-auto choose-page">
-  <button class="custom-404-button" id="back-last-page">></button>
+  <button class="custom-404-button" id="back-last-page"></button>
   <button class="custom-404-button" id="back-home"></button>
 </div>
 
@@ -267,17 +267,23 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname.includes('/en/')) {
+            document.title = "404 - Page Not Found";
+            document.querySelector('h1.display-1').textContent = "404";
+            document.querySelector('.mb-4').textContent = "Page Not Found";
             backButton.innerHTML = '<i class="fa fa-chevron-circle-left"></i> Previous page';
             homeButton.innerHTML = '<i class="fa fa-home"></i> Home page';
             homeButton.addEventListener('click', function() {
                 window.location.href = 'https://Raiyness.github.io/en/';
-  });
+            });
         } else {
+            document.title = "404 - 页面未找到";
+            document.querySelector('h1.display-1').textContent = "404";
+            document.querySelector('.mb-4').textContent = "页面未找到";
             backButton.innerHTML = '<i class="fa fa-chevron-circle-left"></i> 回到上一页';
             homeButton.innerHTML = '<i class="fa fa-home"></i> 回到首页';
-  homeButton.addEventListener('click', function() {
-      window.location.href = 'https://Raiyness.github.io/';
-  });
+            homeButton.addEventListener('click', function() {
+                window.location.href = 'https://Raiyness.github.io/';
+            });
         }      
     });
 
@@ -288,7 +294,6 @@
 </script>
 
 <style>
-
 .choose-page {
   margin-top: 27px;
   height: 50px;
