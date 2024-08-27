@@ -1371,13 +1371,13 @@ i.iconfont {
   height: auto;
   max-height: calc(1.4rem * 3);
 }
-.post-meta {
+.post-meta-book {
   display: flex;
   align-items: center;
   margin-top: 0.25rem;
   font-size: 0.8rem;
 }
-.post-meta i {
+.post-meta-book i {
   margin-right: 0.5rem;
 }
 @media (max-width: 767px) {
