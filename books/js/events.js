@@ -8,6 +8,30 @@ HTMLElement.prototype.wrap = function(wrapper) {
 
 Fluid.events = {
 
+  toggleView: function() {
+    $('#view-toggle').on('change', function() {
+      var $detailedView = $('#detailed-view');
+      var $minimalisticView = $('#minimalistic-view');
+      var $minimalisticLabel = $('[data-view="极简"]');
+      var $detailedLabel = $('[data-view="detailed"]');
+      
+      if ($(this).is(':checked')) {
+        $detailedView.hide();
+        $minimalisticView.show();
+        $minimalisticLabel.removeClass('active');
+        $detailedLabel.addClass('active');
+      } else {
+        $minimalisticView.hide();
+        $detailedView.show();
+        $detailedLabel.removeClass('active');
+        $minimalisticLabel.addClass('active');
+      }
+    });
+
+    // 初始化活动标签
+    $('[data-view="详细"]').addClass('active');
+  },
+
   searchAllTag: function() {
     document.querySelectorAll('.books-tags button.book-tag-all').forEach(function(tag) {
       tag.addEventListener('click', function(event) {

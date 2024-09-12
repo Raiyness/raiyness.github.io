@@ -274,11 +274,11 @@
   
     <button class="book-tag" data-name="Tag1">#Tag1 (3)</button>
   
+    <button class="book-tag" data-name="Tag2">#Tag2 (2)</button>
+  
     <button class="book-tag" data-name="Tag3">#Tag3 (1)</button>
   
     <button class="book-tag" data-name="Record🖊️">#Record🖊️ (1)</button>
-  
-    <button class="book-tag" data-name="Tag2">#Tag2 (2)</button>
   
     <button class="book-tag" data-name="Tag">#Tag (1)</button>
   
@@ -288,17 +288,26 @@
   <input type="text" id="search-input" name="query" placeholder="搜索书籍或标签" />
 </div>
 
-<div class="grid-container">
+<div class="row mx-auto toggle-area">
+  <div class="toggle-container">
+    <span class="toggle-label" data-view="detailed">详细</span>
+    <label class="switch">
+      <input type="checkbox" id="view-toggle">
+      <span class="slider round"></span>
+    </label>
+    <span class="toggle-label" data-view="minimalistic">极简</span>
+  </div>
+</div>
+
+<div id="detailed-view" class="grid-container detailed-view">
   
     <div class="index-card">
       
-      
-        <div class="index-img">
-          <a href="/books/1999/11/30/20230519/" target="_self">
-            <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="文章样例">
-          </a>
-        </div>
-      
+      <div class="index-img">
+        <a href="/books/1999/11/30/20230519/" target="_self">
+          <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="文章样例">
+        </a>
+      </div>
       <article class="index-info">
         <div>
           <h1 class="index-header">
@@ -356,13 +365,61 @@
   
     <div class="index-card">
       
-      
-        <div class="index-img">
-          <a href="/books/2023/05/23/testte/" target="_self">
-            <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="tssssssssss">
+      <div class="index-img">
+        <a href="/books/2023/05/23/testat/" target="_self">
+          <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="testat">
+        </a>
+      </div>
+      <article class="index-info">
+        <div>
+          <h1 class="index-header">
+            
+            <a href="/books/2023/05/23/testat/" target="_self">
+              testat
+            </a>
+          </h1>
+
+          
+          <a class="index-excerpt" href="/books/2023/05/23/testat/" target="_self">
+            <div>
+              
+            </div>
           </a>
         </div>
+
+        <div class="index-btm">
+          
+            <div class="post-meta-book">
+              <i class="iconfont icon-date"></i>
+              <time datetime="2023-05-23 19:31" pubdate>
+                2023-05-23
+              </time>
+            </div>
+          
+          
+          
+            <div class="post-meta-book">
+              <i class="iconfont icon-tags"></i>
+              
+                <a href="/books/tags/%F0%9F%9F%A1Record%F0%9F%96%8A%EF%B8%8F/">#🟡Record🖊️</a>
+              
+                <a href="/books/tags/Tag1/">#Tag1</a>
+              
+                <a href="/books/tags/Tag2/">#Tag2</a>
+              
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="index-card">
       
+      <div class="index-img">
+        <a href="/books/2023/05/23/testte/" target="_self">
+          <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="tssssssssss">
+        </a>
+      </div>
       <article class="index-info">
         <div>
           <h1 class="index-header">
@@ -408,13 +465,11 @@
   
     <div class="index-card">
       
-      
-        <div class="index-img">
-          <a href="/books/2023/05/23/testtttt/" target="_self">
-            <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="testtttt">
-          </a>
-        </div>
-      
+      <div class="index-img">
+        <a href="/books/2023/05/23/testtttt/" target="_self">
+          <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="testtttt">
+        </a>
+      </div>
       <article class="index-info">
         <div>
           <h1 class="index-header">
@@ -448,9 +503,9 @@
               
                 <a href="/books/tags/Tag1/">#Tag1</a>
               
-                <a href="/books/tags/Record%F0%9F%96%8A%EF%B8%8F/">#Record🖊️</a>
-              
                 <a href="/books/tags/Tag2/">#Tag2</a>
+              
+                <a href="/books/tags/Record%F0%9F%96%8A%EF%B8%8F/">#Record🖊️</a>
               
             </div>
           
@@ -460,13 +515,11 @@
   
     <div class="index-card">
       
-      
-        <div class="index-img">
-          <a href="/books/2023/05/23/ysssssss/" target="_self">
-            <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="stststsat">
-          </a>
-        </div>
-      
+      <div class="index-img">
+        <a href="/books/2023/05/23/ysssssss/" target="_self">
+          <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="stststsat">
+        </a>
+      </div>
       <article class="index-info">
         <div>
           <h1 class="index-header">
@@ -508,57 +561,34 @@
       </article>
     </div>
   
-    <div class="index-card">
-      
-      
-        <div class="index-img">
-          <a href="/books/2023/05/23/testat/" target="_self">
-            <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="testat">
-          </a>
-        </div>
-      
-      <article class="index-info">
-        <div>
-          <h1 class="index-header">
-            
-            <a href="/books/2023/05/23/testat/" target="_self">
-              testat
-            </a>
-          </h1>
+</div>
 
-          
-          <a class="index-excerpt" href="/books/2023/05/23/testat/" target="_self">
-            <div>
-              
-            </div>
-          </a>
-        </div>
-
-        <div class="index-btm">
-          
-            <div class="post-meta-book">
-              <i class="iconfont icon-date"></i>
-              <time datetime="2023-05-23 19:31" pubdate>
-                2023-05-23
-              </time>
-            </div>
-          
-          
-          
-            <div class="post-meta-book">
-              <i class="iconfont icon-tags"></i>
-              
-                <a href="/books/tags/%F0%9F%9F%A1Record%F0%9F%96%8A%EF%B8%8F/">#🟡Record🖊️</a>
-              
-                <a href="/books/tags/Tag1/">#Tag1</a>
-              
-                <a href="/books/tags/Tag2/">#Tag2</a>
-              
-            </div>
-          
-        </div>
-      </article>
-    </div>
+<div id="minimalistic-view" class="grid-container minimalistic-view" style="display: none;">
+  
+    
+    <a href="/books/1999/11/30/20230519/" target="_self" class="mini-img-container">
+      <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="文章样例" class="mini-img">
+    </a>
+  
+    
+    <a href="/books/2023/05/23/testat/" target="_self" class="mini-img-container">
+      <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="testat" class="mini-img">
+    </a>
+  
+    
+    <a href="/books/2023/05/23/testte/" target="_self" class="mini-img-container">
+      <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="tssssssssss" class="mini-img">
+    </a>
+  
+    
+    <a href="/books/2023/05/23/testtttt/" target="_self" class="mini-img-container">
+      <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="testtttt" class="mini-img">
+    </a>
+  
+    
+    <a href="/books/2023/05/23/ysssssss/" target="_self" class="mini-img-container">
+      <img src="/books/img/Atomic%20Habits.jpg" srcset="/books/img/loading.gif" lazyload alt="stststsat" class="mini-img">
+    </a>
   
 </div>
 

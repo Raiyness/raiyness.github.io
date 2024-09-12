@@ -14,6 +14,7 @@ Fluid.boot.registerEvents = function() {
   Fluid.events.registerScrollTopArrowEvent();
   Fluid.events.registerScrollBottomArrowEvent();
   Fluid.events.registerImageLoadedEvent();
+  Fluid.events.toggleView();
 };
 
 Fluid.boot.refresh = function() {

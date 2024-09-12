@@ -1419,6 +1419,9 @@ i.iconfont {
   .index-card {
     width: 100%;
   }
+  .minimalistic-view {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
 }
 .search-box {
   display: flex;
@@ -1468,6 +1471,102 @@ i.iconfont {
 }
 .book-tag-all:hover {
   background-color: var(--book-tag-all-bg-hover-color);
+}
+.toggle-area {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+.toggle-label {
+  font-size: 14px;
+  color: var(--nord4);
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.toggle-label.active {
+  background-color: var(--nord3);
+  color: var(--nord6);
+  border-color: var(--nord8); /* 高亮的边框颜色 */
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin: 0 10px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--nord3);
+  transition: 0.4s;
+  border-radius: 24px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--nord6);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: var(--nord8);
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.minimalistic-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+.mini-img-container {
+  position: relative;
+  aspect-ratio: 9/14;
+  overflow: visible; /* 允许伪元素溢出 */
+}
+.mini-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.mini-img-container::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  z-index: -1;
+}
+.mini-img-container:hover::after {
+  border-color: var(--nord8); /* 使用Nord主题的颜色，您可以根据需要调整 */
 }
 #valine.v[data-class=v] .status-bar,
 #valine.v[data-class=v] .veditor,
