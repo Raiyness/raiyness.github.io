@@ -72,6 +72,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400..700&display=swap.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&display=swap.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/pseudocode.min.css">
 
 
 
@@ -268,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.6k 字
+          7.7k 字
         
       </span>
     
@@ -279,7 +280,7 @@
         
         
         
-          32 分钟
+          33 分钟
         
       </span>
     
@@ -349,6 +350,16 @@
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">T</span><span class="hljs-params">(text)</span></span>: HERE IS A SIMPLE EXAMPLE<br><span class="hljs-function"><span class="hljs-title">P</span><span class="hljs-params">(pattern)</span></span>: EXAMPLE<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pseudocode&quot;</span>&gt;</span><br>algorithm example(n)<br>    if n &lt;= 1 then<br>        return 1<br>    else<br>        return example(n - 1) + example(n - 2)<br>    end if<br>end algorithm<br><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<pre><code class="pseudocode">
+\BEGIN
+  \FOR&#123;每个顶点 v \IN 图&#125;
+    distance[v] = 无穷大
+    predecessor[v] = NULL
+  \ENDFOR
+  distance[source] = 0
+\END
+</code></pre>
 
 <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>The Boyer–Moore algorithm searches for occurrences of $P$ in $T$ by performing explicit character comparisons at different alignments. Instead of a brute-force search of all alignments (of which there are $n-m+1$), Boyer–Moore uses information gained by preprocessing $P$ to skip as many alignments as possible.<br>Boyer-Moore 算法通过在不同的对齐位置执行显式字符比较来搜索 $T$ 中 $P$ 的出现。而不是对所有可能的对齐位置进行蛮力搜索（总共有 $n-m+1$ 个），Boyer-Moore 利用预处理 $P$ 所得到的信息，尽可能地跳过多余的对齐位置。</p>
 <p>The key insight in this algorithm is that if the end of the pattern is compared to the text, then jumps along the text can be made rather than checking every character of the text. The reason that this works is that in lining up the pattern against the text, the last character of the pattern is compared to the character in the text. If the characters do not match, there is no need to continue searching backwards along the text. If the character in the text does not match any of the characters in the pattern, then the next character in the text to check is located m characters farther along the text, where m is the length of the pattern. If the character in the text <em>is</em> in the pattern, then a partial shift of the pattern along the text is done to line up along the matching character and the process is repeated. Jumping along the text to make comparisons rather than checking every character in the text decreases the number of comparisons that have to be made, which is the key to the efficiency of the algorithm.<br>该算法的关键洞察是，如果将模式的末尾与文本进行比较，那么可以跳过文本中的一些字符而不必检查每个字符。这样做的原因是，在将模式与文本对齐时，会将模式的最后一个字符与文本中的字符进行比较。如果字符不匹配，则无需继续向后搜索文本。如果文本中的字符与模式中任何一个字符都不匹配，则需要在文本上再向前移动 m 个位置来检查下一个要比较的字符，其中 m 是模式长度。如果文本中的字符在模式中存在，则会对模式进行部分移位以使其与匹配到的字符对齐，并重复此过程。通过跳过一些文字来进行比较而不是检查每个文字，减少了必须执行的比较次数，这就是该算法高效性能背后关键所在。</p>
@@ -849,6 +860,7 @@
 
   
 <script src="/js/pseudocode.min.js"></script>
+<script src="/js/custom-pseudocode.js"></script>
 
 
 

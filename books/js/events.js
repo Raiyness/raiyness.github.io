@@ -9,27 +9,41 @@ HTMLElement.prototype.wrap = function(wrapper) {
 Fluid.events = {
 
   toggleView: function() {
-    $('#view-toggle').on('change', function() {
-      var $detailedView = $('#detailed-view');
-      var $minimalisticView = $('#minimalistic-view');
-      var $minimalisticLabel = $('[data-view="极简"]');
-      var $detailedLabel = $('[data-view="detailed"]');
-      
-      if ($(this).is(':checked')) {
+    const $viewToggle = $('#view-toggle');
+    const $detailedView = $('#detailed-view');
+    const $minimalisticView = $('#minimalistic-view');
+    const $detailedLabel = $('[data-view="detailed"]');
+    const $minimalisticLabel = $('[data-view="minimalistic"]');
+    
+    // 初始化设置，确保初始状态正确
+    if ($viewToggle.is(':checked')) {
+        // 开关被选中时，显示极简视图并高亮极简视图的标签
         $detailedView.hide();
         $minimalisticView.show();
-        $minimalisticLabel.removeClass('active');
-        $detailedLabel.addClass('active');
-      } else {
+        $minimalisticLabel.addClass('active');
+        $detailedLabel.removeClass('active');
+    } else {
+        // 开关未选中时，显示详细视图并高亮详细视图的标签
         $minimalisticView.hide();
         $detailedView.show();
-        $detailedLabel.removeClass('active');
-        $minimalisticLabel.addClass('active');
-      }
-    });
+        $detailedLabel.addClass('active');
+        $minimalisticLabel.removeClass('active');
+    }
 
-    // 初始化活动标签
-    $('[data-view="详细"]').addClass('active');
+    // 监听开关的变化，切换视图和高亮对应标签
+    $viewToggle.on('change', function() {
+        if ($(this).is(':checked')) {
+            $detailedView.hide();
+            $minimalisticView.show();
+            $minimalisticLabel.addClass('active');
+            $detailedLabel.removeClass('active');
+        } else {
+            $minimalisticView.hide();
+            $detailedView.show();
+            $detailedLabel.addClass('active');
+            $minimalisticLabel.removeClass('active');
+        }
+    });
   },
 
   searchAllTag: function() {

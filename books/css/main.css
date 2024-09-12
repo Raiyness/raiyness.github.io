@@ -1473,7 +1473,7 @@ i.iconfont {
   background-color: var(--book-tag-all-bg-hover-color);
 }
 .toggle-area {
-  margin: 1.5rem 0;
+  margin: 1.2rem 0;
   display: flex;
   justify-content: flex-end;
   width: 100%;
@@ -1484,16 +1484,15 @@ i.iconfont {
 }
 .toggle-label {
   font-size: 14px;
-  color: var(--nord4);
+  color: var(--text-color);
   padding: 5px 10px;
   border-radius: 15px;
   border: 2px solid transparent;
   transition: all 0.3s ease;
 }
 .toggle-label.active {
-  background-color: var(--nord3);
-  color: var(--nord6);
-  border-color: var(--nord8); /* 高亮的边框颜色 */
+  background-color: var(--book-search-input-bg-color);
+  border-color: var(--book-tag-all-bg-hover-color);
 }
 .switch {
   position: relative;
@@ -1566,7 +1565,7 @@ input:checked + .slider:before {
   z-index: -1;
 }
 .mini-img-container:hover::after {
-  border-color: var(--nord8); /* 使用Nord主题的颜色，您可以根据需要调整 */
+  border-color: var(--book-tag-all-bg-hover-color); /* 使用Nord主题的颜色，您可以根据需要调整 */
 }
 #valine.v[data-class=v] .status-bar,
 #valine.v[data-class=v] .veditor,
