@@ -269,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k 字
+          8.8k 字
         
       </span>
     
@@ -280,7 +280,7 @@
         
         
         
-          46 分钟
+          37 分钟
         
       </span>
     
@@ -349,34 +349,12 @@
 </ul>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">T</span><span class="hljs-params">(text)</span></span>: HERE IS A SIMPLE EXAMPLE<br><span class="hljs-function"><span class="hljs-title">P</span><span class="hljs-params">(pattern)</span></span>: EXAMPLE<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pseudocode&quot;</span>&gt;</span><br>\documentclass&#123;article&#125;<br><br>\usepackage&#123;algorithm&#125;<br>\usepackage[noEnd=false,indLines=true]&#123;algpseudocodex&#125;<br><br>\newcommand&#123;\And&#125;&#123;\textbf&#123;and~&#125;&#125;<br>\newcommand&#123;\Or&#125;&#123;\textbf&#123;or~&#125;&#125;<br>\newcommand&#123;\Xor&#125;&#123;\textbf&#123;xor~&#125;&#125;<br>\newcommand&#123;\Not&#125;&#123;\textbf&#123;not~&#125;&#125;<br>\newcommand&#123;\To&#125;&#123;\textbf&#123;to~&#125;&#125;<br>\newcommand&#123;\DownTo&#125;&#123;\textbf&#123;downto~&#125;&#125;<br>\newcommand&#123;\True&#125;&#123;\textbf&#123;true~&#125;&#125;<br>\newcommand&#123;\False&#125;&#123;\textbf&#123;false~&#125;&#125;<br>\newcommand&#123;\Input&#125;&#123;\item[\textbf&#123;Input:&#125;]&#125;<br>\renewcommand&#123;\Output&#125;&#123;\item[\textbf&#123;Output:&#125;]&#125;<br>\newcommand&#123;\Print&#125;&#123;\State \textbf&#123;print~&#125;&#125;<br>\renewcommand&#123;\Return&#125;&#123;\State \textbf&#123;return~&#125;&#125;<br><br>\usepackage&#123;amsmath&#125;<br><br><br>\begin&#123;document&#125;<br>\begin&#123;algorithm&#125;<br>\caption&#123;Monotonic Stack for Finding the Next Greater Element&#125;<br>\begin&#123;algorithmic&#125;[1]<br>  \Procedure&#123;NextGreaterElement&#125;&#123;$nums$&#125;<br>    \State $stack \gets \emptyset$ \Comment&#123;Initialize an empty stack&#125;<br>    \State $result \gets$ array of size $|nums|$ filled with $-1$<br>    \Comment&#123;Initialize result array with -1&#125;<br>    <br>    \For&#123;$i \gets 0$ \To $|nums| - 1$&#125;<br>      \While&#123;$stack$ is not empty and $nums[stack.top()] &lt; nums[i]$&#125;<br>        \State $index \gets stack.pop()$<br>        \State $result[index] \gets nums[i]$<br>      \EndWhile<br>      \State $stack.push(i)$<br>    \EndFor<br>    \State \Return $result$<br>  \EndProcedure<br>\end&#123;algorithmic&#125;<br>\end&#123;algorithm&#125;<br><br>\end&#123;document&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pseudocode&quot;</span>&gt;</span><br>\begin&#123;algorithm&#125;<br>\caption&#123;Monotonic Stack for Finding the Next Greater Element&#125;<br>\begin&#123;algorithmic&#125;<br>  \Procedure&#123;NextGreaterElement&#125;&#123;$nums$&#125;<br>    \State $stack \gets \emptyset$ \Comment&#123;Initialize an empty stack&#125;<br>    \State $result \gets$ array of size $|nums|$ filled with $-1$<br>    \Comment&#123;Initialize result array with -1&#125;<br>    <br>    \For&#123;$i \gets 0$ \To $|nums| - 1$&#125;<br>      \While&#123;$stack$ is not empty and $nums[stack.top()] &lt; nums[i]$&#125;<br>        \State $index \gets stack.pop()$<br>        \State $result[index] \gets nums[i]$<br>      \EndWhile<br>      \State $stack.push(i)$<br>    \EndFor<br>    \State \Return $result$<br>  \EndProcedure<br>\end&#123;algorithmic&#125;<br>\end&#123;algorithm&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <pre><code class="pseudocode">
-\documentclass&#123;article&#125;
-
-\usepackage&#123;algorithm&#125;
-\usepackage[noEnd=false,indLines=true]&#123;algpseudocodex&#125;
-
-\newcommand&#123;\And&#125;&#123;\textbf&#123;and~&#125;&#125;
-\newcommand&#123;\Or&#125;&#123;\textbf&#123;or~&#125;&#125;
-\newcommand&#123;\Xor&#125;&#123;\textbf&#123;xor~&#125;&#125;
-\newcommand&#123;\Not&#125;&#123;\textbf&#123;not~&#125;&#125;
-\newcommand&#123;\To&#125;&#123;\textbf&#123;to~&#125;&#125;
-\newcommand&#123;\DownTo&#125;&#123;\textbf&#123;downto~&#125;&#125;
-\newcommand&#123;\True&#125;&#123;\textbf&#123;true~&#125;&#125;
-\newcommand&#123;\False&#125;&#123;\textbf&#123;false~&#125;&#125;
-\newcommand&#123;\Input&#125;&#123;\item[\textbf&#123;Input:&#125;]&#125;
-\renewcommand&#123;\Output&#125;&#123;\item[\textbf&#123;Output:&#125;]&#125;
-\newcommand&#123;\Print&#125;&#123;\State \textbf&#123;print~&#125;&#125;
-\renewcommand&#123;\Return&#125;&#123;\State \textbf&#123;return~&#125;&#125;
-
-\usepackage&#123;amsmath&#125;
-
-
-\begin&#123;document&#125;
 \begin&#123;algorithm&#125;
 \caption&#123;Monotonic Stack for Finding the Next Greater Element&#125;
-\begin&#123;algorithmic&#125;[1]
+\begin&#123;algorithmic&#125;
   \Procedure&#123;NextGreaterElement&#125;&#123;$nums$&#125;
     \State $stack \gets \emptyset$ \Comment&#123;Initialize an empty stack&#125;
     \State $result \gets$ array of size $|nums|$ filled with $-1$
@@ -393,8 +371,6 @@
   \EndProcedure
 \end&#123;algorithmic&#125;
 \end&#123;algorithm&#125;
-
-\end&#123;document&#125;
 </code></pre>
 
 <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>The Boyer–Moore algorithm searches for occurrences of $P$ in $T$ by performing explicit character comparisons at different alignments. Instead of a brute-force search of all alignments (of which there are $n-m+1$), Boyer–Moore uses information gained by preprocessing $P$ to skip as many alignments as possible.<br>Boyer-Moore 算法通过在不同的对齐位置执行显式字符比较来搜索 $T$ 中 $P$ 的出现。而不是对所有可能的对齐位置进行蛮力搜索（总共有 $n-m+1$ 个），Boyer-Moore 利用预处理 $P$ 所得到的信息，尽可能地跳过多余的对齐位置。</p>
