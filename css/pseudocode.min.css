@@ -9,12 +9,12 @@
 
 .ps-root .ps-algorithm {
     margin: .8em 0;
-    border-top: 3px solid #000;
-    border-bottom: 2px solid #000
+    border-top: 3px solid var(--post-text-color);
+    border-bottom: 2px solid var(--post-text-color)
 }
 
 .ps-root .ps-algorithm.with-caption>.ps-line:first-child {
-    border-bottom: 2px solid #000
+    border-bottom: 2px solid var(--post-text-color)
 }
 
 .ps-root .katex {
@@ -31,7 +31,7 @@
 .ps-root .ps-line {
     margin: 0;
     padding: 0;
-    line-height: 1.2
+    line-height: 1.3
 }
 
 .ps-root .ps-funcname {
