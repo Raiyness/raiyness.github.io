@@ -18,22 +18,25 @@
   <meta name="author" content="Ray">
   <meta name="keywords" content="">
   
-    <meta name="description" content="[!info] Metadata domain:: relevant::  What is Burrows-Wheeler Transform (BWT) The Burrows–Wheeler transform (BWT, also called block-sorting compression) rearranges a character string into runs of sim">
+    <meta name="description" content="单调栈，一种特殊的栈数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ray">
-<meta property="og:url" content="http://raiyness.github.io/2024/08/25/Burrows%E2%80%93Wheeler%20Transform/index.html">
+<meta property="og:title" content="Monotonic Stack">
+<meta property="og:url" content="http://raiyness.github.io/2024/09/05/Monotonic%20Stack/index.html">
 <meta property="og:site_name" content="Ray">
-<meta property="og:description" content="[!info] Metadata domain:: relevant::  What is Burrows-Wheeler Transform (BWT) The Burrows–Wheeler transform (BWT, also called block-sorting compression) rearranges a character string into runs of sim">
+<meta property="og:description" content="单调栈，一种特殊的栈数据结构">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-08-25T05:13:14.488Z">
-<meta property="article:modified_time" content="2024-08-19T04:45:00.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Raiyness/picgo/master/rayPicGo/Monotonic_Stack.gif">
+<meta property="article:published_time" content="2024-09-05T06:53:00.000Z">
+<meta property="article:modified_time" content="2024-09-12T07:36:00.000Z">
 <meta property="article:author" content="Ray">
-<meta property="article:tag" content="📝️&#x2F;🔋">
+<meta property="article:tag" content="Data Structure">
+<meta property="article:tag" content="Stack">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Raiyness/picgo/master/rayPicGo/Monotonic_Stack.gif">
   
   
   
-  <title>Ray</title>
+  <title>Monotonic Stack - Ray</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -44,6 +47,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -240,13 +245,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/homepage.png') no-repeat center center; background-size: cover;">
+     style="background: url('https://raw.githubusercontent.com/Raiyness/picgo/master/rayPicGo/Monotonic_Stack.gif') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.4)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Monotonic Stack"></span>
           
         </div>
 
@@ -257,8 +262,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-25 15:13" pubdate>
-          2024年8月25日 下午
+        <time datetime="2024-09-05 16:53" pubdate>
+          2024年9月5日 下午
         </time>
       </span>
     
@@ -269,7 +274,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          4k 字
         
       </span>
     
@@ -280,7 +285,7 @@
         
         
         
-          9 分钟
+          17 分钟
         
       </span>
     
@@ -318,12 +323,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">Monotonic Stack</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年8月19日 下午
+                    本文最后更新于：2024年9月12日 下午
                   
                 
               </p>
@@ -331,30 +336,42 @@
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p>[!info] Metadata</p>
-<p>domain::<br>
-relevant::</p>
-</blockquote>
-<h2 id="What-is-Burrows-Wheeler-Transform-BWT">What is Burrows-Wheeler Transform (BWT)</h2>
-<p>The Burrows–Wheeler transform (BWT, also called block-sorting compression) rearranges a character string into runs of similar characters. This is useful for compression, since it tends to be easy to compress a string that has runs of repeated characters by techniques such as move-to-front transform and run-length encoding.<br>
-Burrows-Wheeler 变换（BWT，也称为块排序压缩）将字符串重新排列成相似字符的连续序列。这对于压缩非常有用，因为通过移至前端变换和游程编码等技术，往往可以轻松地压缩具有重复字符连续序列的字符串。</p>
-<p>More importantly, the transformation is <em>reversible</em>, without needing to store any additional data except the position of the first original character. The BWT is thus a “free” method of improving the efficiency of text compression algorithms, costing only some extra computation.<br>
-更重要的是，这种转换是可逆的，无需存储任何额外的数据，除了第一个原始字符的位置。因此，BWT 是一种“免费”的方法来提高文本压缩算法的效率，只需要一些额外计算成本。</p>
-<h2 id="Description">Description</h2>
-<p>When a character string is transformed by the BWT, the transformation permutes the order of the characters. If the original string had several substrings that occurred often, then the transformed string will have several places where a single character is repeated multiple times in a row.<br>
-当一个字符串通过 BWT 进行转换时，这个转换会改变字符的顺序。如果原始字符串中有多个经常出现的子字符串，那么转换后的字符串中会有多处连续重复出现同一个字符的情况。</p>
-<p>The transform is done by sorting all the <strong>circular shifts</strong> of a text in <strong>lexicographic order</strong> and by extracting the last column and the index of the original string in the set of sorted permutations of <code>S</code>.<br>
-通过按<strong>字典顺序</strong>对文本的所有<strong>循环位移</strong>进行排序，并提取最后一列和原始字符串在已排序排列集合中的索引来完成变换。</p>
-<h3 id="Example">Example</h3>
-<p>![[BWT.png]]</p>
-<h2 id="BWT-Applications">BWT Applications</h2>
-<h3 id="Data-Compression">Data Compression</h3>
-<p>BWT serves as the foundation for various compression algorithms, including the popular Burrows-Wheeler Compression (BWC) and the bzip2 utility. By exploiting redundancy and patterns in the data, BWT achieves significant compression ratios, making it indispensable in scenarios where storage or bandwidth is limited.</p>
-<h3 id="DNA-Sequencing">DNA Sequencing</h3>
-<p>In bioinformatics, BWT plays a pivotal role in DNA sequencing algorithms. It helps in aligning sequences, identifying similarities, and detecting mutations with high efficiency and accuracy.</p>
-<h3 id="Pattern-Matching">Pattern Matching</h3>
-<p>BWT, coupled with the FM-index, enables efficient pattern matching in large datasets. Applications range from text searching in documents to genome analysis in bioinformatics.</p>
+                <p>单调栈，一种特殊的栈数据结构</p>
+<span id="more"></span>
+<h2 id="什么是单调栈？">什么是<strong>单调栈</strong>？</h2>
+<p>单调栈，是一种特殊的栈数据结构。在这种栈中，元素始终保持单调递增或单调递减的顺序。当我们插入一个新元素时，会先弹出栈顶的所有不满足单调性的元素，然后再将新元素压入栈中。</p>
+<p><img src="https://raw.githubusercontent.com/Raiyness/picgo/master/rayPicGo/Monotonic_Stack.gif" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="单调栈的类型">单调栈的类型</h2>
+<h3 id="单调递增栈">单调递增栈</h3>
+<p>栈中的每个元素比其下方的元素要大。每当新元素进栈时，如果栈顶元素比当前元素大或相等，则将栈顶元素出栈，直到栈顶元素小于新元素或栈为空。</p>
+<h4 id="伪代码">伪代码</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs pseudo">\begin&#123;algorithm&#125;<br>\caption&#123;Monotonic Stack for Finding the Next Greater Element&#125;<br>\begin&#123;algorithmic&#125;<br>  \Procedure&#123;NextGreaterElement&#125;&#123;$nums$&#125;<br>    \State $stack \gets \emptyset$ \Comment&#123;Initialize an empty stack&#125;<br>    \State $result \gets$ array of size $|nums|$ filled with $-1$<br>    \Comment&#123;Initialize result array with -1&#125;<br>    <br>    \For&#123;$i \gets 0$ \To $|nums| - 1$&#125;<br>      \While&#123;$stack$ is not empty and $nums[stack.top()] &lt; nums[i]$&#125;<br>        \State $index \gets stack.pop()$<br>        \State $result[index] \gets nums[i]$<br>      \EndWhile<br>      \State $stack.push(i)$<br>    \EndFor<br>    \State \Return $result$<br>  \EndProcedure<br>\end&#123;algorithmic&#125;<br>\end&#123;algorithm&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="Java-代码实现">Java 代码实现</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">import</span> java.util.Stack;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MonotonicStack</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] nextGreaterElements(<span class="hljs-type">int</span>[] nums) &#123;<br>        <span class="hljs-type">int</span>[] result = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length];<br>        Stack&lt;Integer&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        <br>        <span class="hljs-comment">// Initialize result with -1</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) &#123;<br>            result[i] = -<span class="hljs-number">1</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) &#123;<br>            <span class="hljs-keyword">while</span> (!stack.isEmpty() &amp;&amp; nums[stack.peek()] &lt; nums[i]) &#123;<br>                result[stack.pop()] = nums[i];<br>            &#125;<br>            stack.push(i);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">MonotonicStack</span> <span class="hljs-variable">ms</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MonotonicStack</span>();<br>        <span class="hljs-type">int</span>[] nums = &#123;<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>&#125;;<br>        <span class="hljs-type">int</span>[] result = ms.nextGreaterElements(nums);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> val : result) &#123;<br>            System.out.print(val + <span class="hljs-string">&quot; &quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="单调递减栈">单调递减栈</h3>
+<p>栈中的每个元素比其下方的元素要小。每当新元素进栈时，如果栈顶元素比当前元素小或相等，则将栈顶元素出栈，直到栈顶元素大于新元素或栈为空。</p>
+<h4 id="伪代码-2">伪代码</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs pseudo">\begin&#123;algorithm&#125;<br>\caption&#123;Monotonic Decreasing Stack for Sliding Window Maximum&#125;<br>\begin&#123;algorithmic&#125;<br>  \Procedure&#123;SlidingWindowMax&#125;&#123;$nums, k$&#125;<br>    \State $deque \gets \emptyset$ \Comment&#123;Initialize an empty deque&#125;<br>    \State $result \gets$ array of size $|nums| - k + 1$<br><br>    \For&#123;$i \gets 0$ \To $|nums| - 1$&#125;<br>      \Comment&#123;Remove elements out of window&#125;<br>      \If&#123;$deque$ is not empty and $deque.front() \leq i - k$&#125;<br>        \State $deque.pop\_front()$<br>      \EndIf<br><br>      \Comment&#123;Maintain decreasing order in the deque&#125;<br>      \While&#123;$deque$ is not empty and $nums[deque.back()] &lt; nums[i]$&#125;<br>        \State $deque.pop\_back()$<br>      \EndWhile<br><br>      \State $deque.push\_back(i)$<br><br>      \Comment&#123;Store the current window maximum&#125;<br>      \If&#123;$i \geq k - 1$&#125;<br>        \State $result[i - k + 1] \gets nums[deque.front()]$<br>      \EndIf<br>    \EndFor<br><br>    \State \Return $result$<br>  \EndProcedure<br>\end&#123;algorithmic&#125;<br>\end&#123;algorithm&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="Java-代码实现-2">Java 代码实现</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">import</span> java.util.Deque;<br><span class="hljs-keyword">import</span> java.util.LinkedList;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SlidingWindowMax</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] maxSlidingWindow(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> k) &#123;<br>        <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">0</span>];<br>        <br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>        <span class="hljs-type">int</span>[] result = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n - k + <span class="hljs-number">1</span>];<br>        Deque&lt;Integer&gt; deque = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-comment">// Remove elements not in the sliding window</span><br>            <span class="hljs-keyword">if</span> (!deque.isEmpty() &amp;&amp; deque.peekFirst() &lt; i - k + <span class="hljs-number">1</span>) &#123;<br>                deque.pollFirst();<br>            &#125;<br><br>            <span class="hljs-comment">// Remove elements smaller than the current number from the back</span><br>            <span class="hljs-keyword">while</span> (!deque.isEmpty() &amp;&amp; nums[deque.peekLast()] &lt; nums[i]) &#123;<br>                deque.pollLast();<br>            &#125;<br><br>            deque.offerLast(i);<br><br>            <span class="hljs-comment">// The front of the deque is the max element of the window</span><br>            <span class="hljs-keyword">if</span> (i &gt;= k - <span class="hljs-number">1</span>) &#123;<br>                result[i - k + <span class="hljs-number">1</span>] = nums[deque.peekFirst()];<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">SlidingWindowMax</span> <span class="hljs-variable">swm</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SlidingWindowMax</span>();<br>        <span class="hljs-type">int</span>[] nums = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>&#125;;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;<br>        <span class="hljs-type">int</span>[] result = swm.maxSlidingWindow(nums, k);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> val : result) &#123;<br>            System.out.print(val + <span class="hljs-string">&quot; &quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="单调栈的应用">单调栈的应用</h2>
+<ul>
+<li><strong>下一个更大/更小元素</strong>：寻找某个元素右边（或左边）第一个比它大的/小的元素。例如，给定一个数组，可以利用单调栈找到每个元素的下一个更大元素。</li>
+<li><strong>滑动窗口最大值</strong>：通过单调递减栈维护滑动窗口中的最大值。</li>
+<li><strong>接雨水问题</strong>：通过单调递减栈有效地计算每个柱子之间能接多少雨水。</li>
+<li><strong>柱状图最大矩形问题</strong>：通过单调递增栈找到每个柱子能形成的最大矩形面积。</li>
+</ul>
+<h2 id="单调栈的优缺点">单调栈的优缺点</h2>
+<h3 id="优点">优点</h3>
+<ul>
+<li><strong>高效性</strong>：单调栈可以在很多问题中将时间复杂度降低到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，因为每个元素只会入栈和出栈一次，这对于某些问题而言极具优势。</li>
+<li><strong>空间节省</strong>：相比于直接遍历所有可能的组合，单调栈只需要线性空间。</li>
+</ul>
+<h3 id="缺点">缺点</h3>
+<ul>
+<li><strong>适用场景有限</strong>：单调栈主要适用于需要按顺序处理的数据，且要求能够根据当前元素的信息更新数据状态。</li>
+<li><strong>额外的空间开销</strong>：虽然相比暴力解法节省时间，但单调栈需要额外的栈空间，可能不适合内存有限的场景。</li>
+</ul>
 
                 
               </div>
@@ -363,11 +380,34 @@ Burrows-Wheeler 变换（BWT，也称为块排序压缩）将字符串重新排�
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Computer-Science/" class="category-chain-item">Computer Science</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%F0%9F%93%9D%EF%B8%8F-%F0%9F%94%8B/">#📝️/🔋</a>
+        <a href="/tags/Data-Structure/">#Data Structure</a>
+      
+        <a href="/tags/Stack/">#Stack</a>
       
     </div>
   
@@ -379,8 +419,8 @@ Burrows-Wheeler 变换（BWT，也称为块排序压缩）将字符串重新排�
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div><strong></strong></div>
-      <div>http://raiyness.github.io/2024/08/25/Burrows–Wheeler Transform/</div>
+      <div><strong>Monotonic Stack</strong></div>
+      <div>http://raiyness.github.io/2024/09/05/Monotonic Stack/</div>
     </div>
     <div class="license-meta">
       
@@ -392,7 +432,7 @@ Burrows-Wheeler 变换（BWT，也称为块排序压缩）将字符串重新排�
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年8月25日</div>
+          <div>2024年9月5日</div>
         </div>
       
       
@@ -436,18 +476,12 @@ Burrows-Wheeler 变换（BWT，也称为块排序压缩）将字符串重新排�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/09/05/Monotonic%20Stack/" title="Monotonic Stack">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Monotonic Stack</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/08/18/Boyer-Moore/" title="Boyer-Moore">
-                        <span class="hidden-mobile">Boyer-Moore</span>
+                      <a href="/2024/08/25/Burrows%E2%80%93Wheeler%20Transform/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -536,6 +570,11 @@ Burrows-Wheeler 变换（BWT，也称为块排序压缩）将字符串重新排�
 
 
   
+
+
+  
+  
+
 
 
 
