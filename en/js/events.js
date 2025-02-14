@@ -8,18 +8,36 @@ HTMLElement.prototype.wrap = function(wrapper) {
 
 Fluid.events = {
 
-  changeLanguage: function(){
+  changeLanguage: function() {
     var currentUrl = window.location.href;
-    if (currentUrl.includes("raiyness.github.io/en")) {
-      var modifiedUrl = currentUrl.replace("raiyness.github.io/en", "raiyness.github.io");
+
+    // 计算目标 URL
+    var targetUrl;
+    if (currentUrl.includes("rayw.dev/en")) {
+      targetUrl = currentUrl.replace("rayw.dev/en", "rayw.dev");
     } else {
-      var modifiedUrl = currentUrl.replace("raiyness.github.io", "raiyness.github.io/en");
+      targetUrl = currentUrl.replace("rayw.dev", "rayw.dev/en");
     }
-    $(document).ready(function() {
+
+    // 监听点击事件，用户手动切换语言
+    jQuery(document).ready(function() {
       jQuery('#change-btn').on('click', function(e) {
-        window.location.href = modifiedUrl;
+        e.preventDefault();
+        window.location.href = targetUrl;
       });
     });
+
+    // **自动语言检测**
+    var userLang = navigator.language || navigator.userLanguage;
+    if (!document.cookie.includes("lang_set")) { // 只在首次访问时执行
+      if (userLang.startsWith("en") && !window.location.pathname.startsWith("/en")) {
+        document.cookie = "lang_set=true; path=/"; // 记录用户已设置语言，避免重复跳转
+        window.location.href = "/en/";
+      } else if (!userLang.startsWith("en") && window.location.pathname.startsWith("/en")) {
+        document.cookie = "lang_set=true; path=/";
+        window.location.href = "/";
+      }
+    }
   },
 
   registerNavbarEvent: function() {
