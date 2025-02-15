@@ -26,18 +26,6 @@ Fluid.events = {
         window.location.href = targetUrl;
       });
     });
-
-    // **自动语言检测**
-    var userLang = navigator.language || navigator.userLanguage;
-    if (!document.cookie.includes("lang_set")) { // 只在首次访问时执行
-      if (userLang.startsWith("en") && !window.location.pathname.startsWith("/en")) {
-        document.cookie = "lang_set=true; path=/"; // 记录用户已设置语言，避免重复跳转
-        window.location.href = "/en/";
-      } else if (!userLang.startsWith("en") && window.location.pathname.startsWith("/en")) {
-        document.cookie = "lang_set=true; path=/";
-        window.location.href = "/";
-      }
-    }
   },
 
   toggleView: function() {
