@@ -9,22 +9,35 @@ HTMLElement.prototype.wrap = function(wrapper) {
 Fluid.events = {
 
   changeLanguage: function() {
-    var currentUrl = window.location.href;
-    var targetUrl;
-
-    // 使用正则表达式来确保精确匹配
-    if (currentUrl.includes("/en/")) {
-      targetUrl = currentUrl.replace("/en/", "/");
-    } else {
-      targetUrl = currentUrl.replace("rayw.dev/", "rayw.dev/en/");
+    // 每次点击时实时计算 URL
+    function calculateTargetUrl() {
+      const currentUrl = window.location.href;
+      
+      // 使用正则表达式精准匹配路径段
+      const isEnglish = /(\/en\/|\/en$)/.test(currentUrl);
+      const baseDomain = 'rayw.dev'; // 可提取为配置项
+  
+      if (isEnglish) {
+        // 移除 /en 路径段（保留后续内容）
+        return currentUrl
+          .replace(/(https?:\/\/[^\/]+)\/en(\/?)/, "$1$2")
+          .replace(/\/$/, ""); // 可选：移除尾部空斜杠
+      } else {
+        // 插入 /en 路径段
+        return currentUrl.replace(
+          new RegExp(`(https?:\/\/[^\/]+\\/${baseDomain})\\/?`),
+          "$1/en/"
+        );
+      }
     }
-
-    // 监听点击事件，用户手动切换语言
+  
+    // 单一事件绑定
     jQuery(document).ready(function() {
-      jQuery('#change-btn').on('click', function(e) {
-        console.log("targetUrl: " + targetUrl);
+      jQuery('#change-btn').off('click').on('click', function(e) {
         e.preventDefault();
-        window.location.href = targetUrl;
+        const finalUrl = calculateTargetUrl();
+        console.log("Redirecting to:", finalUrl);
+        window.location.href = finalUrl;
       });
     });
   },
