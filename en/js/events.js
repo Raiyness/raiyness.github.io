@@ -15,15 +15,14 @@ Fluid.events = {
     var targetUrl;
     if (currentUrl.includes("rayw.dev/en")) {
       targetUrl = currentUrl.replace("rayw.dev/en", "rayw.dev");
-      console.log("targetUrl: " + targetUrl);
     } else {
       targetUrl = currentUrl.replace("rayw.dev", "rayw.dev/en");
-      console.log("targetUrl: " + targetUrl);
     }
 
     // 监听点击事件，用户手动切换语言
     jQuery(document).ready(function() {
       jQuery('#change-btn').on('click', function(e) {
+        console.log("targetUrl: " + targetUrl);
         e.preventDefault();
         window.location.href = targetUrl;
       });
