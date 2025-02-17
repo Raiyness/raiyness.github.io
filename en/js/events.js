@@ -10,13 +10,13 @@ Fluid.events = {
 
   changeLanguage: function() {
     var currentUrl = window.location.href;
-
-    // 计算目标 URL
     var targetUrl;
-    if (currentUrl.includes("rayw.dev/en")) {
-      targetUrl = currentUrl.replace("rayw.dev/en", "rayw.dev");
+
+    // 使用正则表达式来确保精确匹配
+    if (currentUrl.includes("/en/")) {
+      targetUrl = currentUrl.replace("/en/", "/");
     } else {
-      targetUrl = currentUrl.replace("rayw.dev", "rayw.dev/en");
+      targetUrl = currentUrl.replace("rayw.dev/", "rayw.dev/en/");
     }
 
     // 监听点击事件，用户手动切换语言
