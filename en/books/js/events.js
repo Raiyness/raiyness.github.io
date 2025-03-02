@@ -185,21 +185,6 @@ Fluid.events = {
     });
   },
 
-
-  changeLanguage: function(){
-    var currentUrl = window.location.href;
-    if (currentUrl.includes("raiyness.github.io/en")) {
-      var modifiedUrl = currentUrl.replace("raiyness.github.io/en", "raiyness.github.io");
-    } else {
-      var modifiedUrl = currentUrl.replace("raiyness.github.io", "raiyness.github.io/en");
-    }
-    $(document).ready(function() {
-      jQuery('#change-btn').on('click', function(e) {
-        window.location.href = modifiedUrl;
-      });
-    });
-  },
-
   registerNavbarEvent: function() {
     var navbar = jQuery('#navbar');
     if (navbar.length === 0) {

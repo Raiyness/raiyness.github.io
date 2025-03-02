@@ -9,24 +9,24 @@ HTMLElement.prototype.wrap = function(wrapper) {
 Fluid.events = {
 
   changeLanguage: function() {
-    // 每次点击时实时计算 URL
     function calculateTargetUrl() {
       const currentUrl = window.location.href;
-      // 使用正则表达式精准匹配路径段
-      const isEnglish = /(\/en\/|\/en$)/.test(currentUrl);
       
+      const isEnglish = /(\/en\/|\/en$)/.test(currentUrl);
+      const baseDomain = 'rayw.dev';
+  
       if (isEnglish) {
-        // 从英文切换到默认语言 - 移除 /en 路径段
-        return currentUrl.replace(/\/en(\/|$)/, '/');
+        return currentUrl
+          .replace(/(https?:\/\/[^\/]+)\/en(\/?)/, "$1$2")
+          .replace(/\/$/, "");
       } else {
-        // 从默认语言切换到英文 - 在域名后添加 /en/
-        const urlObj = new URL(currentUrl);
-        const path = urlObj.pathname;
-        return urlObj.origin + '/en' + (path === '/' ? '/' : path) + urlObj.search;
+        return currentUrl.replace(
+          new RegExp(`(https?:\/\/[^\/]+\\/${baseDomain})\\/?`),
+          "$1/en/"
+        );
       }
     }
-    
-    // 单一事件绑定
+  
     jQuery(document).ready(function() {
       jQuery('#change-btn').off('click').on('click', function(e) {
         e.preventDefault();
@@ -182,21 +182,6 @@ Fluid.events = {
       } else {
         $('#no-results').hide();
       }
-    });
-  },
-
-
-  changeLanguage: function(){
-    var currentUrl = window.location.href;
-    if (currentUrl.includes("raiyness.github.io/en")) {
-      var modifiedUrl = currentUrl.replace("raiyness.github.io/en", "raiyness.github.io");
-    } else {
-      var modifiedUrl = currentUrl.replace("raiyness.github.io", "raiyness.github.io/en");
-    }
-    $(document).ready(function() {
-      jQuery('#change-btn').on('click', function(e) {
-        window.location.href = modifiedUrl;
-      });
     });
   },
 
