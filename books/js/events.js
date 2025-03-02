@@ -9,30 +9,22 @@ HTMLElement.prototype.wrap = function(wrapper) {
 Fluid.events = {
 
   changeLanguage: function() {
-    // 每次点击时实时计算 URL
-    function calculateTargetUrl() {
-      const currentUrl = window.location.href;
-      // 使用正则表达式精准匹配路径段
-      const isEnglish = /(\/en\/|\/en$)/.test(currentUrl);
-      
-      if (isEnglish) {
-        // 从英文切换到默认语言 - 移除 /en 路径段
-        return currentUrl.replace(/\/en(\/|$)/, '/');
-      } else {
-        // 从默认语言切换到英文 - 在域名后添加 /en/
-        const urlObj = new URL(currentUrl);
-        const path = urlObj.pathname;
-        return urlObj.origin + '/en' + (path === '/' ? '/' : path) + urlObj.search;
-      }
+    var currentUrl = window.location.href;
+    var targetUrl;
+
+    // 使用正则表达式来确保精确匹配
+    if (currentUrl.includes("/en/")) {
+      targetUrl = currentUrl.replace("/en/", "/");
+    } else {
+      targetUrl = currentUrl.replace("rayw.dev/", "rayw.dev/en/");
     }
-    
-    // 单一事件绑定
+
+    // 监听点击事件，用户手动切换语言
     jQuery(document).ready(function() {
-      jQuery('#change-btn').off('click').on('click', function(e) {
+      jQuery('#change-btn').on('click', function(e) {
+        console.log("targetUrl: " + targetUrl);
         e.preventDefault();
-        const finalUrl = calculateTargetUrl();
-        console.log("Redirecting to:", finalUrl);
-        window.location.href = finalUrl;
+        window.location.href = targetUrl;
       });
     });
   },
