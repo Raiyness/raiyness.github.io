@@ -238,6 +238,31 @@
   </div>
 </nav>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const changeBtn = document.getElementById('change-btn');
+    if (changeBtn) {
+      changeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const currentUrl = window.location.href;
+        const isEnglish = /(\/en\/|\/en$)/.test(currentUrl);
+        let newUrl;
+        
+        if (isEnglish) {
+          newUrl = currentUrl.replace(/\/en(\/|$)/, '/');
+        } else {
+          const urlObj = new URL(currentUrl);
+          newUrl = urlObj.origin + '/en' + urlObj.pathname + urlObj.search;
+        }
+        
+        console.log("Redirecting to:", newUrl);
+        window.location.href = newUrl;
+      });
+    }
+  });
+  </script>
+
   
 
 <div id="banner" class="banner" parallax=true
