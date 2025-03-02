@@ -12,25 +12,20 @@ Fluid.events = {
     // 每次点击时实时计算 URL
     function calculateTargetUrl() {
       const currentUrl = window.location.href;
-      
       // 使用正则表达式精准匹配路径段
       const isEnglish = /(\/en\/|\/en$)/.test(currentUrl);
-      const baseDomain = 'rayw.dev'; // 可提取为配置项
-  
+      
       if (isEnglish) {
-        // 移除 /en 路径段（保留后续内容）
-        return currentUrl
-          .replace(/(https?:\/\/[^\/]+)\/en(\/?)/, "$1$2")
-          .replace(/\/$/, ""); // 可选：移除尾部空斜杠
+        // 从英文切换到默认语言 - 移除 /en 路径段
+        return currentUrl.replace(/\/en(\/|$)/, '/');
       } else {
-        // 插入 /en 路径段
-        return currentUrl.replace(
-          new RegExp(`(https?:\/\/[^\/]+\\/${baseDomain})\\/?`),
-          "$1/en/"
-        );
+        // 从默认语言切换到英文 - 在域名后添加 /en/
+        const urlObj = new URL(currentUrl);
+        const path = urlObj.pathname;
+        return urlObj.origin + '/en' + (path === '/' ? '/' : path) + urlObj.search;
       }
     }
-  
+    
     // 单一事件绑定
     jQuery(document).ready(function() {
       jQuery('#change-btn').off('click').on('click', function(e) {
